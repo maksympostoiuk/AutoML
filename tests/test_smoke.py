@@ -7,6 +7,11 @@ import automl
 from automl.cli import main
 
 
+def test_no_command_prints_help(capsys: pytest.CaptureFixture[str]) -> None:
+    assert main([]) == 0
+    assert "profile" in capsys.readouterr().out
+
+
 def test_version_flag(capsys: pytest.CaptureFixture[str]) -> None:
     with pytest.raises(SystemExit) as exc:
         main(["--version"])
