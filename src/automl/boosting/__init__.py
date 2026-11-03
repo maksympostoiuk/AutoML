@@ -4,5 +4,12 @@ from automl.boosting.from_scratch import (
     ScratchGradientBoostingClassifier,
     ScratchGradientBoostingRegressor,
 )
+from automl.boosting.mini_xgboost import MiniXGBClassifier, MiniXGBRegressor, XGBTree
 
-__all__ = ["ScratchGradientBoostingClassifier", "ScratchGradientBoostingRegressor"]
+__all__ = [
+    "MiniXGBClassifier",
+    "MiniXGBRegressor",
+    "ScratchGradientBoostingClassifier",
+    "ScratchGradientBoostingRegressor",
+    "XGBTree",
+]

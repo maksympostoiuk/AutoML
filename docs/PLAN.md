@@ -123,7 +123,9 @@ Python 3.12, uv, pandas, scikit-learn, **XGBoost**, **Optuna**, **SHAP**, pydant
 - тесты: предсказания совпадают со sklearn `GradientBoostingRegressor`/`Classifier` с теми же параметрами, loss при обучении падает, строковые метки, валидация параметров;
 - `scripts/compare_boosting.py`: сравнение со sklearn и XGBoost по качеству и скорости, кривая ошибки на test для двух learning rate.
 
-**1b. Мини-XGBoost.** Своё дерево вместо `DecisionTreeRegressor`: поиск разбиения по формуле gain из градиентов и гессианов, вес листа `-G / (H + lambda)`, `gamma` как минимальный выигрыш от разбиения, `min_child_weight`, обработка пропусков (направление по умолчанию). Тест: на тех же данных и параметрах совпадает с `xgboost` (`tree_method="exact"`).
+**1b. Мини-XGBoost** — готово (2026-11-03).
+- `boosting/mini_xgboost.py`: своё дерево вместо `DecisionTreeRegressor`; точный (exact) поиск разбиения по gain из градиентов и гессианов, вес листа `-G / (H + lambda)`, L1 `reg_alpha`, `gamma` с прунингом снизу вверх, `min_child_weight`, пропуски с направлением по умолчанию (включая разбиение «пропуск против остальных»), `subsample`, `colsample_bytree`, `to_text()` для просмотра дерева;
+- тесты: формулы на примере, который считается вручную; предсказания совпадают с `xgboost` (`tree_method="exact"`) до точности float32 для регрессии и классификации, с `gamma`, L1/L2, `min_child_weight` и пропусками.
 
 **1c. Ноутбук** `notebooks/01_boosting_from_scratch.ipynb`: графики обучения, влияние learning rate и глубины, early stopping, что именно ускоряет XGBoost (гистограммы, C++, параллельность).
 

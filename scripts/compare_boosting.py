@@ -1,9 +1,14 @@
-"""Compare the from-scratch gradient boosting with scikit-learn and XGBoost.
+"""Compare the from-scratch boosting implementations with scikit-learn and XGBoost.
 
 Run: uv run python scripts/compare_boosting.py
 
-Same hyperparameters for all three, test-set quality and fit time. Uses datasets bundled with
-scikit-learn plus one larger synthetic set, so it needs no network.
+* scratch GB / sklearn GB: classic gradient boosting (ours vs. the library);
+* mini-xgb / xgb exact: second-order boosting with exact split search (ours vs. the library);
+* xgb hist: XGBoost's default histogram method.
+
+Same n_estimators, learning_rate and max_depth for all; the XGBoost family keeps its default
+L2 regularisation (lambda = 1). Datasets are bundled with scikit-learn plus one larger
+synthetic set, so the script needs no network.
 """
 
 import time
@@ -15,7 +20,12 @@ from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegress
 from sklearn.metrics import log_loss, mean_squared_error, roc_auc_score
 from sklearn.model_selection import train_test_split
 
-from automl.boosting import ScratchGradientBoostingClassifier, ScratchGradientBoostingRegressor
+from automl.boosting import (
+    MiniXGBClassifier,
+    MiniXGBRegressor,
+    ScratchGradientBoostingClassifier,
+    ScratchGradientBoostingRegressor,
+)
 
 N_ESTIMATORS, LEARNING_RATE, MAX_DEPTH = 200, 0.05, 3
 COMMON = {"n_estimators": N_ESTIMATORS, "learning_rate": LEARNING_RATE, "max_depth": MAX_DEPTH}
@@ -30,34 +40,37 @@ def timed_fit(model, X, y):
 def regression(name: str, X: np.ndarray, y: np.ndarray) -> None:
     X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0)
     models = {
-        "scratch": ScratchGradientBoostingRegressor(**COMMON, random_state=0),
-        "sklearn": GradientBoostingRegressor(**COMMON, random_state=0),
-        # XGBoost's own regularisation is switched off to make the comparison fair.
-        "xgboost": xgb.XGBRegressor(**COMMON, reg_lambda=0.0, random_state=0),
+        "scratch GB": ScratchGradientBoostingRegressor(**COMMON, random_state=0),
+        "sklearn GB": GradientBoostingRegressor(**COMMON, random_state=0),
+        "mini-xgb": MiniXGBRegressor(**COMMON),
+        "xgb exact": xgb.XGBRegressor(**COMMON, tree_method="exact"),
+        "xgb hist": xgb.XGBRegressor(**COMMON),
     }
     print(f"\n{name}: regression, {X.shape[0]} rows x {X.shape[1]} features")
-    print(f"  {'model':<8} {'test RMSE':>10} {'fit, s':>8}")
+    print(f"  {'model':<10} {'test RMSE':>10} {'fit, s':>8}")
     for label, model in models.items():
         model, seconds = timed_fit(model, X_tr, y_tr)
         rmse = mean_squared_error(y_te, model.predict(X_te)) ** 0.5
-        print(f"  {label:<8} {rmse:>10.3f} {seconds:>8.2f}")
+        print(f"  {label:<10} {rmse:>10.3f} {seconds:>8.2f}")
     print(f"  baseline (predict the mean): {np.std(y_te):.3f}")
 
 
 def classification(name: str, X: np.ndarray, y: np.ndarray) -> None:
     X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.25, random_state=0, stratify=y)
     models = {
-        "scratch": ScratchGradientBoostingClassifier(**COMMON, random_state=0),
-        "sklearn": GradientBoostingClassifier(**COMMON, random_state=0),
-        "xgboost": xgb.XGBClassifier(**COMMON, reg_lambda=0.0, random_state=0),
+        "scratch GB": ScratchGradientBoostingClassifier(**COMMON, random_state=0),
+        "sklearn GB": GradientBoostingClassifier(**COMMON, random_state=0),
+        "mini-xgb": MiniXGBClassifier(**COMMON),
+        "xgb exact": xgb.XGBClassifier(**COMMON, tree_method="exact"),
+        "xgb hist": xgb.XGBClassifier(**COMMON),
     }
     print(f"\n{name}: binary classification, {X.shape[0]} rows x {X.shape[1]} features")
-    print(f"  {'model':<8} {'log-loss':>10} {'ROC AUC':>8} {'fit, s':>8}")
+    print(f"  {'model':<10} {'log-loss':>10} {'ROC AUC':>8} {'fit, s':>8}")
     for label, model in models.items():
         model, seconds = timed_fit(model, X_tr, y_tr)
         proba = model.predict_proba(X_te)[:, 1]
         print(
-            f"  {label:<8} {log_loss(y_te, proba):>10.4f} "
+            f"  {label:<10} {log_loss(y_te, proba):>10.4f} "
             f"{roc_auc_score(y_te, proba):>8.4f} {seconds:>8.2f}"
         )
 
