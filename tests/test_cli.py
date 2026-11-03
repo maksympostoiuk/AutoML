@@ -31,3 +31,20 @@ def test_profile_json(churn_csv: Path, capsys: pytest.CaptureFixture[str]) -> No
 def test_profile_unknown_target(churn_csv: Path, capsys: pytest.CaptureFixture[str]) -> None:
     assert main(["profile", str(churn_csv), "--target", "nope"]) == 1
     assert "not in the data" in capsys.readouterr().err
+
+
+def test_fit_then_predict(
+    churn_csv: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    model_path = tmp_path / "model.joblib"
+    args = ["fit", str(churn_csv), "--target", "churned", "--time-budget", "3", "--trials", "3"]
+    assert main([*args, "--out", str(model_path)]) == 0
+    out = capsys.readouterr().out
+    assert "Leaderboard" in out and "xgboost" in out
+    assert model_path.exists()
+
+    predictions = tmp_path / "predictions.csv"
+    assert main(["predict", str(model_path), str(churn_csv), "--out", str(predictions)]) == 0
+    result = pd.read_csv(predictions)
+    assert list(result.columns) == ["prediction", "proba_no", "proba_yes"]
+    assert len(result) == 400

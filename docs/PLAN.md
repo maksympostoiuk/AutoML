@@ -143,14 +143,15 @@ Python 3.12, uv, pandas, scikit-learn, **XGBoost**, **Optuna**, **SHAP**, pydant
 
 Замечание: `fetch_openml` в sklearn 1.9 с pandas 3 падает на парсере по умолчанию — использовать `parser="liac-arff"`.
 
-### Этап 3. AutoML-ядро
-- базовые модели: Dummy, линейная/логистическая регрессия, RandomForest;
-- XGBoost + Optuna: пространство поиска, early stopping на valid, бюджет по времени и числу испытаний, фиксированный seed;
-- leaderboard: CV на train для выбора, финальная оценка на test один раз;
-- переобучение лучшей модели, сохранение конвейера (preprocess + модель + label encoder);
-- CLI: `automl fit data.csv --target churn`, `automl predict`.
+### Этап 3. AutoML-ядро — готово (2026-11-03)
+- `metrics.py`: единое правило «больше — лучше» для оптимизации (`objective()` переворачивает потери), отчёты в естественных единицах; классификационные метрики считаются по вероятностям;
+- `models.py`: кандидаты dummy → linear (сила регуляризации подбирается на valid) → random_forest → xgboost_default → xgboost (Optuna TPE, `direction="maximize"`); early stopping на valid (до 2000 деревьев, 50 раундов терпения); у всех лог-диапазонов `low > 0`; `gamma` задаётся долей от числа строк (gain — сумма по строкам); цель регрессии для XGBoost стандартизируется;
+- `engine.py`: `AutoML(...).fit(df, target)` — задача → разбиение → тюнинг на train/valid → **выбор по valid** → переобучение каждого кандидата на train+valid (число деревьев масштабируется) → **test один раз** → leaderboard; `FittedModel` (Pipeline preprocess+model, классы, метаданные), `save`/`load_model` (joblib);
+- CLI: `automl fit data.csv --target col --time-budget 120`, `automl predict model.joblib new.csv`.
 
-**Готово, когда:** тесты на направление оптимизации, валидность пространства поиска, отсутствие утечки test в выбор модели; сквозной тест `fit → save → load → predict`.
+**Результаты:** Titanic — xgboost 0.904 ROC AUC на test (логистическая 0.904, RF 0.891); Adult — xgboost 0.930 против 0.927 у XGBoost по умолчанию и 0.906 у логистической.
+
+**Известное ограничение:** на маленьких данных (сотни строк) одна валидационная выборка шумная: 30+ испытаний Optuna подстраиваются под неё (на синтетике 400 строк: valid 0.87, test 0.63, логистическая лучше на test). Leaderboard это честно показывает. Исправление — на этапе 5: для малых данных выбирать по кросс-валидации и проверить на бенчмарке.
 
 ### Этап 4. Объяснимость
 - SHAP `TreeExplainer`: глобальная важность, beeswarm, объяснение одной строки (waterfall);
