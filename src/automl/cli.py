@@ -2,12 +2,12 @@
 
 import argparse
 
-from xautoml import __version__
+from automl import __version__
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(prog="xautoml", description=__doc__)
-    parser.add_argument("--version", action="version", version=f"xautoml {__version__}")
+    parser = argparse.ArgumentParser(prog="automl", description=__doc__)
+    parser.add_argument("--version", action="version", version=f"automl {__version__}")
     parser.parse_args(argv)
     parser.print_help()
 

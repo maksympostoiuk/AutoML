@@ -1,4 +1,4 @@
-# Explainable AutoML: архитектура и план
+# AutoML: архитектура и план
 
 ## 1. Что мы строим
 
@@ -80,10 +80,10 @@ flowchart LR
 
 **Главное правило:** LLM работает только на входе (текст → `TaskSpec`) и на выходе (результаты → текст). Всё, что посередине, детерминировано и покрыто тестами. Ядро работает и без LLM: `TaskSpec` можно передать руками.
 
-**Структура пакета `xautoml`:**
+**Структура пакета `automl`:**
 
 ```
-src/xautoml/
+src/automl/
   data/        профиль таблицы, типы столбцов, загрузка датасетов
   task.py      TaskSpec (pydantic): target, problem_type, metric, drop_columns
   preprocess.py
@@ -110,18 +110,22 @@ Python 3.12, uv, pandas, scikit-learn, **XGBoost**, **Optuna**, **SHAP**, pydant
 Каждый этап заканчивается работающим кодом, тестами и коммитом.
 
 ### Этап 0. Каркас
-- uv-проект, пакет `xautoml`, ruff, pytest, pre-commit;
+- uv-проект, пакет `automl`, ruff, pytest, pre-commit;
 - GitHub Actions: lint + тесты;
 - короткий README на английском (полная версия на этапе 9).
 
 **Готово, когда:** `uv run pytest` и `uv run ruff check .` зелёные локально и в CI.
 
 ### Этап 1. Gradient boosting с нуля (учебный)
-- `boosting/`: регрессия (MSE) и бинарная классификация (log-loss) на NumPy поверх `DecisionTreeRegressor`: начальное предсказание, псевдо-остатки, learning rate, `n_estimators`, subsample;
-- ноутбук `notebooks/01_boosting_from_scratch.ipynb`: как падает ошибка с каждым деревом, влияние learning rate и глубины, сравнение со sklearn `GradientBoosting*` и XGBoost по качеству и скорости;
-- заметки: что XGBoost добавляет сверху (вторые производные, регуляризация `lambda`/`alpha`/`gamma`, гистограммы, обработка пропусков, column subsampling).
 
-**Готово, когда:** своя реализация на тестовых данных совпадает со sklearn `GradientBoostingRegressor` с теми же параметрами, тесты проверяют, что loss монотонно падает.
+**1a. Классический gradient boosting** — готово (2026-11-03).
+- `boosting/from_scratch.py`: регрессия (MSE) и бинарная классификация (log-loss) на NumPy поверх `DecisionTreeRegressor`: начальное предсказание, псевдо-остатки, шаг Ньютона в листьях, learning rate, subsample, `staged_predict`;
+- тесты: предсказания совпадают со sklearn `GradientBoostingRegressor`/`Classifier` с теми же параметрами, loss при обучении падает, строковые метки, валидация параметров;
+- `scripts/compare_boosting.py`: сравнение со sklearn и XGBoost по качеству и скорости, кривая ошибки на test для двух learning rate.
+
+**1b. Мини-XGBoost.** Своё дерево вместо `DecisionTreeRegressor`: поиск разбиения по формуле gain из градиентов и гессианов, вес листа `-G / (H + lambda)`, `gamma` как минимальный выигрыш от разбиения, `min_child_weight`, обработка пропусков (направление по умолчанию). Тест: на тех же данных и параметрах совпадает с `xgboost` (`tree_method="exact"`).
+
+**1c. Ноутбук** `notebooks/01_boosting_from_scratch.ipynb`: графики обучения, влияние learning rate и глубины, early stopping, что именно ускоряет XGBoost (гистограммы, C++, параллельность).
 
 ### Этап 2. Данные и спецификация задачи
 - `profile_dataset(df)`: типы столбцов, доля пропусков, число уникальных, примеры значений; компактный профиль для LLM без сырых данных;
@@ -137,7 +141,7 @@ Python 3.12, uv, pandas, scikit-learn, **XGBoost**, **Optuna**, **SHAP**, pydant
 - XGBoost + Optuna: пространство поиска, early stopping на valid, бюджет по времени и числу испытаний, фиксированный seed;
 - leaderboard: CV на train для выбора, финальная оценка на test один раз;
 - переобучение лучшей модели, сохранение конвейера (preprocess + модель + label encoder);
-- CLI: `xautoml fit data.csv --target churn`, `xautoml predict`.
+- CLI: `automl fit data.csv --target churn`, `automl predict`.
 
 **Готово, когда:** тесты на направление оптимизации, валидность пространства поиска, отсутствие утечки test в выбор модели; сквозной тест `fit → save → load → predict`.
 
@@ -179,6 +183,6 @@ Python 3.12, uv, pandas, scikit-learn, **XGBoost**, **Optuna**, **SHAP**, pydant
 
 ## 7. Открытые вопросы
 
-- Как идёт обучение на учебных частях (этап 1): пишете код сами с подсказками или я пишу с подробными объяснениями, а вы разбираете и меняете?
-- Сколько времени в неделю и есть ли срок, к которому проект нужен в CV.
-- Название репозитория на GitHub (рабочее: `explainable-automl`).
+- Название репозитория на GitHub: `AutoML`?
+
+**Решено:** учебные части пишутся с подробными комментариями, которые объясняют каждый шаг; сроков нет, работаем этапами по порядку.

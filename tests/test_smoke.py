@@ -3,15 +3,15 @@ import pytest
 import xgboost as xgb
 from sklearn.datasets import make_classification
 
-import xautoml
-from xautoml.cli import main
+import automl
+from automl.cli import main
 
 
 def test_version_flag(capsys: pytest.CaptureFixture[str]) -> None:
     with pytest.raises(SystemExit) as exc:
         main(["--version"])
     assert exc.value.code == 0
-    assert xautoml.__version__ in capsys.readouterr().out
+    assert automl.__version__ in capsys.readouterr().out
 
 
 def test_core_stack_trains_xgboost() -> None:

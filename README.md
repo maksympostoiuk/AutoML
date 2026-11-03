@@ -1,4 +1,4 @@
-# Explainable AutoML
+# AutoML
 
 AutoML for tabular data with **XGBoost + Optuna** at the core and an **LLM layer** around it:
 describe the task in plain words, get a validated task spec, honestly evaluated models, SHAP

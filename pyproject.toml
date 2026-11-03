@@ -1,7 +1,7 @@
 [project]
-name = "xautoml"
+name = "automl"
 version = "0.1.0"
-description = "Explainable AutoML for tabular data: XGBoost + Optuna at the core, an LLM layer that understands the task and writes the report."
+description = "AutoML for tabular data: XGBoost + Optuna at the core, an LLM layer that understands the task and writes the report."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
@@ -13,14 +13,14 @@ dependencies = [
 ]
 
 [project.scripts]
-xautoml = "xautoml.cli:main"
+automl = "automl.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/xautoml"]
+packages = ["src/automl"]
 
 [tool.ruff]
 line-length = 100
