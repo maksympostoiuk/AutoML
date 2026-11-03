@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Environment / secrets
+.env
+
+# Local data and run artifacts
+data/
+artifacts/
+*.db
+mlruns/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editors / tools
+.vscode/
+.idea/
+.claude/
