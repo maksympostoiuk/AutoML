@@ -54,3 +54,12 @@ dev = [
     "pytest>=9.2.0",
     "ruff>=0.17.3",
 ]
+notebooks = [
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "nbconvert>=7.17.2",
+    "nbformat>=5.11.1",
+]
+
+[tool.uv]
+default-groups = ["dev", "notebooks"]
