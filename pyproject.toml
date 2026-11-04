@@ -18,6 +18,11 @@ dependencies = [
 [project.scripts]
 automl = "automl.cli:main"
 
+[project.optional-dependencies]
+llm = [
+    "anthropic>=2.4.0",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

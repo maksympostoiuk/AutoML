@@ -2,6 +2,13 @@
 
 automl profile data.csv [--target churn] [--json]     profile the table, infer the task
 automl fit data.csv --target churn [--time-budget 120] [--out artifacts/model.joblib]
+automl fit data.csv --spec artifacts/spec.json        use a checked task spec
+
+Task description in plain words, via a chat window (free, no API key):
+automl prompt data.csv --describe "who will churn" --out prompt.md   paste into the chat
+automl check-spec data.csv answer.json                 save the reply, check it -> spec.json
+Or directly through the API (needs ANTHROPIC_API_KEY):
+automl fit data.csv --describe "who will churn" --llm anthropic
 automl predict artifacts/model.joblib new.csv [--out predictions.csv]
 automl explain artifacts/model.joblib data.csv [--row 0] [--out-dir artifacts/explain]
 """
@@ -21,6 +28,7 @@ from automl.preprocess import FeaturePlan, plan_features
 from automl.task import TaskSpec, TaskSpecError, infer_task_spec
 
 DEFAULT_MODEL_PATH = Path("artifacts/model.joblib")
+DEFAULT_SPEC_PATH = Path("artifacts/spec.json")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -41,6 +49,21 @@ def main(argv: list[str] | None = None) -> int:
     fit.add_argument("--trials", type=int, default=100, help="max Optuna trials (default 100)")
     fit.add_argument("--out", type=Path, default=DEFAULT_MODEL_PATH, help="where to save the model")
     fit.add_argument("--seed", type=int, default=0)
+    fit.add_argument("--spec", type=Path, help="task spec JSON (from check-spec or by hand)")
+    fit.add_argument("--describe", help="the task in plain words (with --llm)")
+    fit.add_argument("--llm", choices=["anthropic"], help="ask an LLM for the task spec")
+    fit.add_argument("--llm-model", help="model id for --llm (default: the provider's default)")
+
+    prompt = commands.add_parser("prompt", help="write a prompt to paste into an LLM chat")
+    prompt.add_argument("csv", type=Path)
+    prompt.add_argument("--describe", required=True, help="the task in plain words")
+    prompt.add_argument("--target", help="if you know the target: include its leakage checks")
+    prompt.add_argument("--out", type=Path, help="file to write (default: print)")
+
+    check = commands.add_parser("check-spec", help="check an LLM's answer against the data")
+    check.add_argument("csv", type=Path)
+    check.add_argument("answer", type=Path, help="the LLM's reply (JSON, fences allowed)")
+    check.add_argument("--out", type=Path, default=DEFAULT_SPEC_PATH, help="where to save the spec")
 
     predict = commands.add_parser("predict", help="predict with a saved model")
     predict.add_argument("model", type=Path)
@@ -63,6 +86,10 @@ def main(argv: list[str] | None = None) -> int:
         return _predict(args)
     if args.command == "explain":
         return _explain(args)
+    if args.command == "prompt":
+        return _prompt(args)
+    if args.command == "check-spec":
+        return _check_spec(args)
     parser.print_help()
     return 0
 
@@ -94,8 +121,11 @@ def _fit(args: argparse.Namespace) -> int:
     from automl.engine import AutoML  # heavy imports only when training
 
     df = pd.read_csv(args.csv)
-    automl = AutoML(time_budget=args.time_budget, n_trials=args.trials, random_state=args.seed)
     try:
+        spec = _spec_for_fit(args, df)
+        automl = AutoML(
+            spec=spec, time_budget=args.time_budget, n_trials=args.trials, random_state=args.seed
+        )
         automl.fit(df, target=args.target)
     except TaskSpecError as error:
         print("Could not set up the task:", *error.problems, sep="\n  - ", file=sys.stderr)
@@ -109,6 +139,64 @@ def _fit(args: argparse.Namespace) -> int:
     print(automl.leaderboard_.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     path = automl.save(args.out)
     print(f"\nSaved {automl.model_.model_name} to {path}")
+    return 0
+
+
+def _spec_for_fit(args: argparse.Namespace, df: pd.DataFrame) -> TaskSpec | None:
+    if args.spec:
+        return TaskSpec.model_validate_json(args.spec.read_text(encoding="utf-8"))
+    if args.llm:
+        from automl.llm import AnthropicLLM, propose_task_spec
+
+        if not args.describe:
+            raise TaskSpecError(["--llm needs --describe with the task in plain words"])
+        llm = AnthropicLLM(**({"model": args.llm_model} if args.llm_model else {}))
+        return propose_task_spec(df, args.describe, llm)
+    return None
+
+
+def _prompt(args: argparse.Namespace) -> int:
+    from automl.llm import build_chat_prompt
+    from automl.llm.propose import automatic_flags
+    from automl.task import infer_problem_type
+
+    df = pd.read_csv(args.csv)
+    profile = profile_dataset(df)
+    flags = None
+    if args.target:
+        if args.target not in df.columns:
+            print(f"Column {args.target!r} is not in the data", file=sys.stderr)
+            return 1
+        problem_type, _ = infer_problem_type(df[args.target])
+        flags = automatic_flags(df, args.target, problem_type.value, profile)
+    text = build_chat_prompt(profile, args.describe, flags)
+    if args.out:
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        args.out.write_text(text, encoding="utf-8")
+        print(f"Wrote the prompt to {args.out} ({len(text):,} characters).")
+        print("Paste it into a Claude chat, save the reply as a file, then run:")
+        print(f"  automl check-spec {args.csv} <reply file>")
+    else:
+        print(text)
+    return 0
+
+
+def _check_spec(args: argparse.Namespace) -> int:
+    from automl.llm import check_answer
+
+    df = pd.read_csv(args.csv)
+    result = check_answer(args.answer.read_text(encoding="utf-8"), df)
+    if not result.ok:
+        print("The answer does not fit the data:", *result.problems, sep="\n  - ")
+        print("\nSend this follow-up to the same chat, save the new reply and check it again:\n")
+        print(result.repair_prompt())
+        return 1
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(result.spec.model_dump_json(indent=2), encoding="utf-8")
+    profile = profile_dataset(df)
+    _print_task(result.spec, plan_features(profile, result.spec))
+    print(f"\nThe answer fits the data. Saved the spec to {args.out}; train with:")
+    print(f"  automl fit {args.csv} --spec {args.out}")
     return 0
 
 
