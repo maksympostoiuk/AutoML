@@ -9,7 +9,7 @@ import automl.engine as engine
 from automl.engine import AutoML, load_model
 from automl.task import TaskSpec, TaskSpecError
 
-FAST = {"time_budget": 5, "n_trials": 5, "n_jobs": 1}
+FAST = {"time_budget": 5, "n_trials": 5, "n_jobs": 1, "validation": "holdout"}
 
 
 @pytest.fixture
@@ -50,7 +50,9 @@ def test_test_rows_never_reach_the_search(
     original = engine.search_dummy
 
     def spy(data):
-        seen["rows"] = set(data.X_train_trees.index) | set(data.X_valid_trees.index)
+        seen["rows"] = set().union(
+            *(set(f.X_train_trees.index) | set(f.X_valid_trees.index) for f in data.folds)
+        )
         return original(data)
 
     monkeypatch.setattr(engine, "search_dummy", spy)
@@ -115,3 +117,41 @@ def test_a_given_spec_is_used_and_checked(churn_df: pd.DataFrame) -> None:
     wrong = TaskSpec(target="churned", problem_type="regression", metric="rmse")
     with pytest.raises(TaskSpecError):
         AutoML(spec=wrong, **FAST).fit(churn_df)
+
+
+def test_small_data_uses_cross_validation_and_the_one_se_rule(churn_df: pd.DataFrame) -> None:
+    settings = {**FAST, "validation": "auto"}
+    automl = AutoML(**settings).fit(churn_df, target="churned")  # 320 development rows
+    assert automl.validation_ == "5-fold CV"
+    assert automl.selection_ == "one-standard-error rule"
+    assert automl.model_.metadata["validation"] == "5-fold CV"
+
+
+def test_one_se_rule_prefers_the_simpler_model() -> None:
+    from automl.models import Candidate
+
+    automl = AutoML(selection="one_se")
+
+    def candidate(name: str, std: float) -> Candidate:
+        return Candidate(name, None, False, 0.0, 0.0, {"valid_std": std})
+
+    candidates = [candidate("dummy", 0), candidate("linear", 0.02), candidate("xgboost", 0.05)]
+    # xgboost is best by 0.01, but one standard error is 0.05 / sqrt(5) = 0.022.
+    assert automl._choose(candidates, [0.5, 0.80, 0.81], use_cv=True) == 1
+    # A clear win (0.10 > 0.022) keeps xgboost.
+    assert automl._choose(candidates, [0.5, 0.71, 0.81], use_cv=True) == 2
+    # "best" ignores the noise.
+    assert AutoML(selection="best")._choose(candidates, [0.5, 0.80, 0.81], use_cv=True) == 2
+
+
+def test_holdout_can_be_forced(churn_df: pd.DataFrame) -> None:
+    automl = AutoML(**FAST).fit(churn_df, target="churned")
+    assert automl.validation_ == "holdout"
+    assert automl.selection_ == "best validation score"
+
+
+def test_invalid_validation_settings() -> None:
+    with pytest.raises(ValueError):
+        AutoML(validation="bootstrap")
+    with pytest.raises(ValueError, match="cross-validation"):
+        AutoML(validation="holdout", selection="one_se")

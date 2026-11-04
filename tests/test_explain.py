@@ -15,7 +15,7 @@ from automl.explain import _source_column, explain
 from automl.plots import plot_importance, plot_row
 from conftest import make_churn_df
 
-FAST = {"time_budget": 5, "n_trials": 4, "n_jobs": 1}
+FAST = {"time_budget": 5, "n_trials": 4, "n_jobs": 1, "validation": "holdout"}
 
 
 def raw_output(model: FittedModel, df: pd.DataFrame) -> np.ndarray:

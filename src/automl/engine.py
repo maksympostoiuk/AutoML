@@ -8,10 +8,12 @@
 The order of operations is the whole point:
 
 1. understand the task: profile, TaskSpec (inferred or given), checked against the data;
-2. split once into train / validation / test;
-3. every candidate is fitted on train and tuned on validation (``models.py``);
+2. split once: development rows (train + validation) and test rows;
+3. every candidate is tuned on validation data (``models.py``): a holdout validation split
+   for large tables, k-fold cross-validation over the development rows for small ones, where
+   a single validation split is too noisy to choose by;
 4. the best candidate is chosen by its **validation** score;
-5. every candidate is refitted on train + validation with its chosen settings and scored on
+5. every candidate is refitted on all development rows with its chosen settings and scored on
    **test**, once. Test scores are reported, they never influence a choice.
 """
 
@@ -27,6 +29,7 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.base import clone
+from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.pipeline import Pipeline
 
 from automl.data import DatasetProfile, profile_dataset
@@ -34,6 +37,7 @@ from automl.explain import explain
 from automl.metrics import get_metric, model_output
 from automl.models import (
     Candidate,
+    Fold,
     SearchData,
     search_dummy,
     search_linear,
@@ -46,6 +50,7 @@ from automl.split import DataSplits, split_dataset
 from automl.task import TaskSpec, TaskSpecError, infer_task_spec
 
 MIN_XGBOOST_SECONDS = 5.0  # the tuned model always gets at least this long
+CV_MAX_ROWS = 5_000  # validation="auto": k-fold CV below this many development rows
 
 
 @dataclass
@@ -88,15 +93,32 @@ class AutoML:
         test_size: float = 0.2,
         valid_size: float = 0.2,
         check_leakage: bool = True,
+        validation: str = "auto",
+        cv_folds: int = 5,
+        selection: str = "auto",
         random_state: int = 0,
         n_jobs: int = -1,
     ) -> None:
+        """
+        ``validation``: "holdout", "cv" or "auto" (cv below ``CV_MAX_ROWS`` rows).
+        ``selection``: "best" (highest validation score), "one_se" (the simplest candidate
+        within one standard error of the best; needs cv) or "auto" (one_se with cv).
+        """
+        if validation not in ("auto", "holdout", "cv"):
+            raise ValueError('validation must be "auto", "holdout" or "cv"')
+        if selection not in ("auto", "best", "one_se"):
+            raise ValueError('selection must be "auto", "best" or "one_se"')
+        if selection == "one_se" and validation == "holdout":
+            raise ValueError("the one-standard-error rule needs cross-validation")
+        self.selection = selection
         self.spec = spec
         self.time_budget = time_budget
         self.n_trials = n_trials
         self.test_size = test_size
         self.valid_size = valid_size
         self.check_leakage = check_leakage
+        self.validation = validation
+        self.cv_folds = cv_folds
         self.random_state = random_state
         self.n_jobs = n_jobs
 
@@ -126,8 +148,13 @@ class AutoML:
         )
         self.split_sizes_ = splits.sizes()
 
-        # 3. Tune every candidate on train / validation.
-        data = self._search_data(splits, metric.name)
+        # 3. Tune every candidate on validation data.
+        n_development = self.split_sizes_["train"] + self.split_sizes_["valid"]
+        use_cv = self.validation == "cv" or (
+            self.validation == "auto" and n_development < CV_MAX_ROWS
+        )
+        self.validation_ = f"{self.cv_folds}-fold CV" if use_cv else "holdout"
+        data = self._search_data(splits, metric.name, use_cv)
         candidates = [
             search(data)
             for search in (
@@ -143,11 +170,11 @@ class AutoML:
         )
         self.candidates_ = candidates
 
-        # 4. Choose by validation. Ties go to the simpler model (earlier in the list).
+        # 4. Choose by validation. Candidates are ordered from simplest to most complex.
         objectives = [
             c.valid_score if metric.greater_is_better else -c.valid_score for c in candidates
         ]
-        best = candidates[int(np.argmax(objectives))]
+        best = candidates[self._choose(candidates, objectives, use_cv)]
 
         # 5. Refit on train + validation, score on test once.
         X_full = pd.concat([splits.X_train, splits.X_valid])
@@ -205,20 +232,60 @@ class AutoML:
 
     # ----- helpers -------------------------------------------------------------------------
 
-    def _search_data(self, splits: DataSplits, metric_name: str) -> SearchData:
-        trees = make_preprocessor(self.plan_).fit(splits.X_train)
-        linear = make_preprocessor(self.plan_, for_linear=True).fit(splits.X_train)
+    def _search_data(self, splits: DataSplits, metric_name: str, use_cv: bool) -> SearchData:
+        if use_cv:
+            X = pd.concat([splits.X_train, splits.X_valid])
+            y = np.concatenate([splits.y_train, splits.y_valid])
+            splitter_class = StratifiedKFold if self.spec_.is_classification else KFold
+            splitter = splitter_class(
+                n_splits=self.cv_folds, shuffle=True, random_state=self.random_state
+            )
+            pairs = [
+                (X.iloc[train], X.iloc[valid], y[train], y[valid])
+                for train, valid in splitter.split(X, y)
+            ]
+        else:
+            pairs = [(splits.X_train, splits.X_valid, splits.y_train, splits.y_valid)]
         return SearchData(
             problem_type=self.spec_.problem_type.value,
             metric=get_metric(metric_name),
-            X_train_trees=trees.transform(splits.X_train),
-            X_valid_trees=trees.transform(splits.X_valid),
-            X_train_linear=linear.transform(splits.X_train),
-            X_valid_linear=linear.transform(splits.X_valid),
-            y_train=splits.y_train,
-            y_valid=splits.y_valid,
+            folds=[self._fold(*pair) for pair in pairs],
+            n_development_rows=len(splits.y_train) + len(splits.y_valid),
             random_state=self.random_state,
             n_jobs=self.n_jobs,
+        )
+
+    def _choose(self, candidates: list[Candidate], objectives: list[float], use_cv: bool) -> int:
+        """Index of the chosen candidate.
+
+        "best": the highest validation score (ties: the simpler model).
+        "one_se": the one-standard-error rule (Breiman et al., 1984). A tuned model's
+        cross-validated score is a little optimistic (it was the best of many trials) and has
+        noise of its own; a simpler model whose score is within one standard error of the
+        best is statistically as good and safer, so the simplest such model wins.
+        """
+        best = int(np.argmax(objectives))
+        one_se = self.selection == "one_se" or (self.selection == "auto" and use_cv)
+        self.selection_ = "one-standard-error rule" if one_se else "best validation score"
+        if not one_se:
+            return best
+        std = candidates[best].details.get("valid_std", 0.0)
+        threshold = objectives[best] - std / np.sqrt(self.cv_folds)
+        return next(i for i, value in enumerate(objectives) if value >= threshold)
+
+    def _fold(
+        self, X_train: pd.DataFrame, X_valid: pd.DataFrame, y_train: np.ndarray, y_valid: np.ndarray
+    ) -> Fold:
+        # Preprocessing is fitted on the fold's train part only, like everything else.
+        trees = make_preprocessor(self.plan_).fit(X_train)
+        linear = make_preprocessor(self.plan_, for_linear=True).fit(X_train)
+        return Fold(
+            X_train_trees=trees.transform(X_train),
+            X_valid_trees=trees.transform(X_valid),
+            X_train_linear=linear.transform(X_train),
+            X_valid_linear=linear.transform(X_valid),
+            y_train=y_train,
+            y_valid=y_valid,
         )
 
     def _refit(self, candidate: Candidate, X: pd.DataFrame, y: np.ndarray) -> Pipeline:
@@ -236,6 +303,8 @@ class AutoML:
             "valid_score": best.valid_score,
             "details": best.details,
             "split_sizes": self.split_sizes_,
+            "validation": self.validation_,
+            "selection": self.selection_,
             "fit_seconds_total": round(time.perf_counter() - started, 1),
             "versions": {
                 name: version(name) for name in ("automl", "xgboost", "scikit-learn", "pandas")

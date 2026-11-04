@@ -104,6 +104,7 @@ def _fit(args: argparse.Namespace) -> int:
     _print_task(automl.spec_, automl.plan_)
     sizes = automl.split_sizes_
     print(f"\nRows: {sizes['train']} train, {sizes['valid']} validation, {sizes['test']} test")
+    print(f"Model selection: {automl.validation_} on train + validation, {automl.selection_}")
     print("\nLeaderboard (chosen by validation score; test score is the honest estimate):")
     print(automl.leaderboard_.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     path = automl.save(args.out)
