@@ -5,6 +5,10 @@ import pytest
 
 @pytest.fixture
 def churn_df() -> pd.DataFrame:
+    return make_churn_df()
+
+
+def make_churn_df() -> pd.DataFrame:
     """A small churn table with every kind of column the profiler must recognise."""
     rng = np.random.default_rng(0)
     n = 400

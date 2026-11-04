@@ -5,11 +5,13 @@ description = "AutoML for tabular data: XGBoost + Optuna at the core, an LLM lay
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+    "matplotlib>=3.11.2",
     "numpy>=2.5.4",
     "optuna>=5.0.0",
     "pandas>=3.1.0",
     "pydantic>=2.14.2",
     "scikit-learn>=1.9.1",
+    "shap>=0.54.1",
     "xgboost>=3.4.1",
 ]
 
@@ -57,7 +59,6 @@ dev = [
 ]
 notebooks = [
     "ipykernel>=7.4.0",
-    "matplotlib>=3.11.2",
     "nbconvert>=7.17.2",
     "nbformat>=5.11.1",
 ]

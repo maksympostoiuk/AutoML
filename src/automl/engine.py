@@ -30,6 +30,7 @@ from sklearn.base import clone
 from sklearn.pipeline import Pipeline
 
 from automl.data import DatasetProfile, profile_dataset
+from automl.explain import explain
 from automl.metrics import get_metric, model_output
 from automl.models import (
     Candidate,
@@ -173,14 +174,22 @@ class AutoML:
             .reset_index(drop=True)
         )
 
-        self.model_ = FittedModel(
-            pipeline=pipelines[best.name],
-            spec=spec,
-            feature_columns=self.plan_.columns,
-            classes=splits.classes,
-            model_name=best.name,
-            metadata=self._metadata(best, started),
-        )
+        # Every refitted candidate stays available (for comparison and explanations);
+        # the chosen one is ``model_``.
+        self.models_ = {
+            candidate.name: FittedModel(
+                pipeline=pipelines[candidate.name],
+                spec=spec,
+                feature_columns=self.plan_.columns,
+                classes=splits.classes,
+                model_name=candidate.name,
+            )
+            for candidate in candidates
+        }
+        self.model_ = self.models_[best.name]
+        self.model_.metadata = self._metadata(best, started)
+        # Global importance on the test rows: data the model has not been trained on.
+        self.model_.metadata["explanation"] = explain(self.model_, splits.X_test).to_dict()
         return self
 
     def save(self, path: str | Path) -> Path:

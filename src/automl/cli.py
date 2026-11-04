@@ -3,6 +3,7 @@
 automl profile data.csv [--target churn] [--json]     profile the table, infer the task
 automl fit data.csv --target churn [--time-budget 120] [--out artifacts/model.joblib]
 automl predict artifacts/model.joblib new.csv [--out predictions.csv]
+automl explain artifacts/model.joblib data.csv [--row 0] [--out-dir artifacts/explain]
 """
 
 from __future__ import annotations
@@ -46,6 +47,13 @@ def main(argv: list[str] | None = None) -> int:
     predict.add_argument("csv", type=Path)
     predict.add_argument("--out", type=Path, help="CSV to write (default: print to stdout)")
 
+    explain = commands.add_parser("explain", help="explain a saved model with SHAP")
+    explain.add_argument("model", type=Path)
+    explain.add_argument("csv", type=Path)
+    explain.add_argument("--row", type=int, default=0, help="row to explain (0-based, default 0)")
+    explain.add_argument("--top", type=int, default=10, help="columns to show (default 10)")
+    explain.add_argument("--out-dir", type=Path, help="also save the charts as PNG here")
+
     args = parser.parse_args(argv)
     if args.command == "profile":
         return _profile(args)
@@ -53,6 +61,8 @@ def main(argv: list[str] | None = None) -> int:
         return _fit(args)
     if args.command == "predict":
         return _predict(args)
+    if args.command == "explain":
+        return _explain(args)
     parser.print_help()
     return 0
 
@@ -120,6 +130,42 @@ def _predict(args: argparse.Namespace) -> int:
         print(f"Wrote {len(result)} predictions to {args.out}")
     else:
         print(result.to_csv(index=False), end="")
+    return 0
+
+
+def _explain(args: argparse.Namespace) -> int:
+    from automl.engine import load_model
+    from automl.explain import explain
+
+    model = load_model(args.model)
+    df = pd.read_csv(args.csv)
+    if not 0 <= args.row < len(df):
+        print(f"Row {args.row} is out of range: the file has {len(df)} rows", file=sys.stderr)
+        return 1
+    try:
+        # The chosen row first, then the rest of the file as background for global importance.
+        ordered = pd.concat([df.iloc[[args.row]], df.drop(index=df.index[args.row])])
+        explanation = explain(model, ordered, max_rows=len(ordered))
+    except ValueError as error:
+        print(f"Cannot explain: {error}", file=sys.stderr)
+        return 1
+
+    print(f"Model: {model.model_name}; contributions in {explanation.units}")
+    print(f"\nMost important columns ({len(explanation.data)} rows):")
+    for column, score in explanation.importance().head(args.top).items():
+        print(f"  {column:<24} {score:.4f}")
+
+    print(f"\nRow {args.row}: {explanation.describe_row(0)}")
+    for _, item in explanation.row(0).head(args.top).iterrows():
+        print(f"  {item['column']:<24} {str(item['value'])[:24]:<24} {item['contribution']:+.4f}")
+
+    if args.out_dir:
+        from automl.plots import plot_importance, plot_row
+
+        args.out_dir.mkdir(parents=True, exist_ok=True)
+        plot_importance(explanation, top=args.top).savefig(args.out_dir / "importance.png")
+        plot_row(explanation, 0, top=args.top).savefig(args.out_dir / f"row_{args.row}.png")
+        print(f"\nCharts saved to {args.out_dir}")
     return 0
 
 
