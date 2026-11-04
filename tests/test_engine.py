@@ -169,6 +169,8 @@ def test_names_xgboost_rejects_are_handled() -> None:
             "amount [EUR]": rng.normal(1000, 300, n),
         }
     )
-    df["risk"] = np.where(df["checking_status"] == "<0", "bad", "good")
+    # Noisy on purpose: a perfect predictor would be dropped as leakage.
+    flip = rng.random(n) < 0.2
+    df["risk"] = np.where((df["checking_status"] == "<0") ^ flip, "bad", "good")
     automl = AutoML(**FAST).fit(df, target="risk")
     assert set(explain(automl.model_, df).columns) == {"checking_status", "amount [EUR]"}
