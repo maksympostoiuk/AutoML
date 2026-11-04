@@ -1,0 +1,17 @@
+{
+  "target": "survived",
+  "problem_type": "binary",
+  "metric": "roc_auc",
+  "drop_columns": [
+    {
+      "column": "boat",
+      "reason": "The lifeboat number is assigned during the sinking and is a direct consequence of surviving, so it leaks the outcome."
+    },
+    {
+      "column": "body",
+      "reason": "The body identification number is recorded only after a passenger died and their body was recovered, so it leaks the outcome."
+    }
+  ],
+  "keep_flagged_columns": [],
+  "reasoning": "The goal is to predict whether a passenger survived, so the target is the binary column 'survived' and models are compared by roc_auc. Both flagged columns, 'boat' and 'body', are recorded during or after the disaster and directly encode the outcome, so they are dropped as leakage. The remaining columns (class, sex, age, family counts, ticket, fare, cabin, port of embarkation, home/destination) describe the passenger at boarding time and are known before the outcome."
+}

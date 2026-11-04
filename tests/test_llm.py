@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import numpy as np
 import pandas as pd
 import pytest
 
@@ -193,3 +194,47 @@ def test_prompt_with_target_includes_the_flags(churn_csv: Path, tmp_path: Path) 
     assert main([*args, "--out", str(prompt)]) == 0
     text = prompt.read_text(encoding="utf-8")
     assert "Flagged by automatic checks:\n- cancellation_date" in text
+
+
+# ----- a real answer, recorded from a Claude chat ---------------------------------------------
+
+FIXTURES = Path(__file__).parent / "fixtures" / "llm"
+
+
+def titanic_like() -> pd.DataFrame:
+    """A small table with the Titanic columns and both of its leaks."""
+    rng = np.random.default_rng(0)
+    n = 600
+    sex = rng.choice(["male", "female"], n)
+    pclass = rng.choice([1.0, 2.0, 3.0], n)
+    survived = (rng.random(n) < np.where(sex == "female", 0.75, 0.2)).astype(int)
+    return pd.DataFrame(
+        {
+            "pclass": pclass,
+            "survived": survived,
+            "name": [f"Passenger {i}" for i in range(n)],
+            "sex": sex,
+            "age": rng.normal(30, 12, n).round(),
+            "sibsp": rng.integers(0, 3, n).astype(float),
+            "parch": rng.integers(0, 3, n).astype(float),
+            "ticket": rng.choice([f"T{i}" for i in range(300)], n),
+            "fare": rng.gamma(2, 15, n).round(2),
+            "cabin": rng.choice(["B5", "C22", None], n),
+            "embarked": rng.choice(["S", "C", "Q"], n),
+            # Lifeboat: only survivors have one. Body number: only some of the dead.
+            "boat": np.where(survived == 1, rng.choice(["2", "5", "13"], n), None),
+            "body": np.where(
+                (survived == 0) & (rng.random(n) < 0.3), rng.integers(1, 300, n), np.nan
+            ),
+            "home.dest": rng.choice(["London", "New York, NY", None], n),
+        }
+    )
+
+
+def test_recorded_claude_answer_for_titanic() -> None:
+    reply = (FIXTURES / "titanic_claude_chat_reply.json").read_text(encoding="utf-8")
+    df = titanic_like()
+    result = check_answer(reply, df)
+    assert result.ok, result.problems
+    assert result.spec.target == "survived"
+    assert set(result.spec.drop_columns) == {"boat", "body"}  # both leaks, judged by meaning
