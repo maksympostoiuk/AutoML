@@ -11,9 +11,10 @@ with **SHAP**.
 Built to learn gradient boosting properly: the repository also contains gradient boosting and
 a small XGBoost **written from scratch**, which reproduce scikit-learn and `xgboost` exactly.
 
+**[Live demo](https://automl-h.streamlit.app/)** ·
 **[Benchmark on 11 datasets](benchmarks/results.md)** ·
 **[Notebook: how boosting learns](notebooks/01_boosting_from_scratch.ipynb)** ·
-**[Demo app](app/streamlit_app.py)** (`uv run streamlit run app/streamlit_app.py`)
+**[Roadmap and decisions](docs/PLAN.md)**
 
 ![The demo: an LLM reply checked against the data](docs/images/demo-llm-task.png)
 
@@ -119,7 +120,7 @@ uv run automl profile data.csv --target churned        # what is in the table, w
 uv run automl fit data.csv --target churned --time-budget 60
 uv run automl explain artifacts/model.joblib data.csv --row 3 --out-dir artifacts/explain
 uv run automl predict artifacts/model.joblib new.csv --out predictions.csv
-uv run streamlit run app/streamlit_app.py              # the demo
+uv run streamlit run app/streamlit_app.py              # the demo, also live at automl-h.streamlit.app
 uv run pytest                                          # 162 tests
 ```
 
