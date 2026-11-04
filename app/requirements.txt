@@ -1,0 +1,12 @@
+# Streamlit Community Cloud installs these (entrypoint: app/streamlit_app.py).
+# The automl package itself is imported from src/ by the app.
+streamlit>=1.66,<2
+numpy>=2.5
+pandas>=3.1
+scikit-learn>=1.9.1
+xgboost>=3.4.1
+optuna>=5.0
+shap>=0.54.1
+matplotlib>=3.11
+pydantic>=2.14
+joblib

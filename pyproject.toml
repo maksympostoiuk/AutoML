@@ -33,7 +33,7 @@ packages = ["src/automl"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-src = ["src", "tests"]
+src = ["src", "tests", "app"]
 
 [tool.ruff.lint]
 select = [
@@ -53,12 +53,16 @@ select = [
 "src/automl/boosting/**" = ["SIM300"]
 # The report uses real typography (en dash for "no value", minus sign).
 "benchmarks/report.py" = ["RUF001"]
+"app/**" = ["RUF001"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra --strict-markers"
 
 [dependency-groups]
+app = [
+    "streamlit>=1.66.1",
+]
 dev = [
     "pre-commit>=4.7.0",
     "pytest>=9.2.0",
@@ -71,4 +75,4 @@ notebooks = [
 ]
 
 [tool.uv]
-default-groups = ["dev", "notebooks"]
+default-groups = ["dev", "notebooks", "app"]

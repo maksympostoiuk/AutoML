@@ -32,6 +32,7 @@ from sklearn.base import clone
 from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.pipeline import Pipeline
 
+from automl import __version__
 from automl.data import DatasetProfile, profile_dataset
 from automl.explain import explain
 from automl.metrics import get_metric, model_output
@@ -307,9 +308,8 @@ class AutoML:
             "validation": self.validation_,
             "selection": self.selection_,
             "fit_seconds_total": round(time.perf_counter() - started, 1),
-            "versions": {
-                name: version(name) for name in ("automl", "xgboost", "scikit-learn", "pandas")
-            },
+            "versions": {"automl": __version__}
+            | {name: version(name) for name in ("xgboost", "scikit-learn", "pandas")},
         }
 
 

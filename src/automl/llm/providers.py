@@ -1,7 +1,7 @@
 """LLM providers behind one small interface.
 
 * ``AnthropicLLM``: the Claude API with structured outputs (needs ``ANTHROPIC_API_KEY`` in the
-  environment and ``pip install "automl[llm]"``). The key is never stored in the project.
+  environment and ``uv sync --extra llm``). The key is never stored in the project.
 * ``RecordedLLM``: replays prepared answers. Tests and CI use it: no network, no key.
 
 The chat workflow needs no provider at all: the prompt is printed, the user pastes it into a
@@ -49,7 +49,7 @@ class AnthropicLLM:
                 import anthropic
             except ImportError as error:
                 raise RuntimeError(
-                    'The Anthropic SDK is not installed: pip install "automl[llm]"'
+                    "The Anthropic SDK is not installed: uv sync --extra llm"
                 ) from error
             client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
         self.client = client

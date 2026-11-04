@@ -1,0 +1,401 @@
+customer_id,tenure_months,monthly_charges,contract,payment_method,has_partner,signup_date,support_notes,country,cancellation_date,churned
+1000,61,58.29,month-to-month,card,False,2020-01-01,Customer called about billing issue number 0 and asked for a callback,CZ,2024-01-01,yes
+1001,46,60.55,one year,,True,2020-01-02,Customer called about billing issue number 1 and asked for a callback,CZ,2024-01-02,yes
+1002,37,81.73,month-to-month,card,True,2020-01-03,Customer called about billing issue number 2 and asked for a callback,CZ,,no
+1003,20,56.73,one year,card,True,2020-01-04,Customer called about billing issue number 3 and asked for a callback,CZ,2024-01-04,yes
+1004,22,57.73,month-to-month,bank,True,2020-01-05,Customer called about billing issue number 4 and asked for a callback,CZ,2024-01-05,yes
+1005,3,37.9,month-to-month,,False,2020-01-06,Customer called about billing issue number 5 and asked for a callback,CZ,,no
+1006,6,84.59,one year,check,True,2020-01-07,Customer called about billing issue number 6 and asked for a callback,CZ,2024-01-07,yes
+1007,2,86.12,one year,,True,2020-01-08,Customer called about billing issue number 7 and asked for a callback,CZ,2024-01-08,yes
+1008,13,60.47,month-to-month,card,True,2020-01-09,Customer called about billing issue number 8 and asked for a callback,CZ,2024-01-09,yes
+1009,58,,month-to-month,,False,2020-01-10,Customer called about billing issue number 9 and asked for a callback,CZ,2024-01-10,yes
+1010,47,44.15,one year,check,True,2020-01-11,Customer called about billing issue number 10 and asked for a callback,CZ,,no
+1011,65,60.56,one year,check,False,2020-01-12,Customer called about billing issue number 11 and asked for a callback,CZ,,no
+1012,36,97.56,month-to-month,bank,True,2020-01-13,Customer called about billing issue number 12 and asked for a callback,CZ,2024-01-13,yes
+1013,44,72.71,one year,bank,True,2020-01-14,Customer called about billing issue number 13 and asked for a callback,CZ,2024-01-14,yes
+1014,69,116.21,month-to-month,bank,True,2020-01-15,Customer called about billing issue number 14 and asked for a callback,CZ,2024-01-15,yes
+1015,52,54.26,two year,check,True,2020-01-16,Customer called about billing issue number 15 and asked for a callback,CZ,,no
+1016,45,81.61,one year,,False,2020-01-17,Customer called about billing issue number 16 and asked for a callback,CZ,,no
+1017,39,66.09,month-to-month,card,False,2020-01-18,Customer called about billing issue number 17 and asked for a callback,CZ,2024-01-18,yes
+1018,40,81.32,two year,,True,2020-01-19,Customer called about billing issue number 18 and asked for a callback,CZ,,no
+1019,67,69.86,month-to-month,,False,2020-01-20,Customer called about billing issue number 19 and asked for a callback,CZ,,no
+1020,20,58.78,month-to-month,check,False,2020-01-21,Customer called about billing issue number 20 and asked for a callback,CZ,2024-01-21,yes
+1021,58,52.65,month-to-month,check,True,2020-01-22,Customer called about billing issue number 21 and asked for a callback,CZ,,no
+1022,48,131.32,one year,,True,2020-01-23,Customer called about billing issue number 22 and asked for a callback,CZ,2024-01-23,yes
+1023,1,68.45,one year,bank,True,2020-01-24,Customer called about billing issue number 23 and asked for a callback,CZ,2024-01-24,yes
+1024,28,29.67,month-to-month,bank,True,2020-01-25,Customer called about billing issue number 24 and asked for a callback,CZ,,no
+1025,61,57.03,month-to-month,,True,2020-01-26,Customer called about billing issue number 25 and asked for a callback,CZ,,no
+1026,40,83.56,one year,card,True,2020-01-27,Customer called about billing issue number 26 and asked for a callback,CZ,,no
+1027,3,60.0,month-to-month,check,False,2020-01-28,Customer called about billing issue number 27 and asked for a callback,CZ,2024-01-28,yes
+1028,55,97.21,month-to-month,,True,2020-01-29,Customer called about billing issue number 28 and asked for a callback,CZ,2024-01-29,yes
+1029,52,90.05,two year,bank,True,2020-01-30,Customer called about billing issue number 29 and asked for a callback,CZ,2024-01-30,yes
+1030,61,66.95,month-to-month,bank,False,2020-01-31,Customer called about billing issue number 30 and asked for a callback,CZ,,no
+1031,13,60.56,two year,,True,2020-02-01,Customer called about billing issue number 31 and asked for a callback,CZ,,no
+1032,7,,one year,card,True,2020-02-02,Customer called about billing issue number 32 and asked for a callback,CZ,,no
+1033,62,56.0,one year,bank,False,2020-02-03,Customer called about billing issue number 33 and asked for a callback,CZ,,no
+1034,2,40.54,month-to-month,check,False,2020-02-04,Customer called about billing issue number 34 and asked for a callback,CZ,2024-02-04,yes
+1035,39,94.09,month-to-month,bank,True,2020-02-05,Customer called about billing issue number 35 and asked for a callback,CZ,2024-02-05,yes
+1036,6,101.81,month-to-month,check,False,2020-02-06,Customer called about billing issue number 36 and asked for a callback,CZ,2024-02-06,yes
+1037,22,44.88,month-to-month,card,True,2020-02-07,Customer called about billing issue number 37 and asked for a callback,CZ,2024-02-07,yes
+1038,35,,month-to-month,bank,False,2020-02-08,Customer called about billing issue number 38 and asked for a callback,CZ,2024-02-08,yes
+1039,31,34.63,two year,check,True,2020-02-09,Customer called about billing issue number 39 and asked for a callback,CZ,,no
+1040,29,50.72,month-to-month,,True,2020-02-10,Customer called about billing issue number 40 and asked for a callback,CZ,,no
+1041,3,7.87,two year,card,True,2020-02-11,Customer called about billing issue number 41 and asked for a callback,CZ,,no
+1042,1,47.15,two year,check,False,2020-02-12,Customer called about billing issue number 42 and asked for a callback,CZ,,no
+1043,9,95.94,month-to-month,card,True,2020-02-13,Customer called about billing issue number 43 and asked for a callback,CZ,2024-02-13,yes
+1044,1,63.09,month-to-month,card,False,2020-02-14,Customer called about billing issue number 44 and asked for a callback,CZ,,no
+1045,48,87.09,month-to-month,check,False,2020-02-15,Customer called about billing issue number 45 and asked for a callback,CZ,2024-02-15,yes
+1046,38,60.22,month-to-month,check,False,2020-02-16,Customer called about billing issue number 46 and asked for a callback,CZ,,no
+1047,46,105.21,two year,,False,2020-02-17,Customer called about billing issue number 47 and asked for a callback,CZ,2024-02-17,yes
+1048,19,73.98,month-to-month,,True,2020-02-18,Customer called about billing issue number 48 and asked for a callback,CZ,2024-02-18,yes
+1049,44,62.36,one year,card,True,2020-02-19,Customer called about billing issue number 49 and asked for a callback,CZ,,no
+1050,55,121.05,month-to-month,,False,2020-02-20,Customer called about billing issue number 50 and asked for a callback,CZ,2024-02-20,yes
+1051,28,,month-to-month,,False,2020-02-21,Customer called about billing issue number 51 and asked for a callback,CZ,,no
+1052,33,45.58,month-to-month,card,True,2020-02-22,Customer called about billing issue number 52 and asked for a callback,CZ,,no
+1053,71,74.04,month-to-month,card,False,2020-02-23,Customer called about billing issue number 53 and asked for a callback,CZ,,no
+1054,58,69.22,month-to-month,,True,2020-02-24,Customer called about billing issue number 54 and asked for a callback,CZ,,no
+1055,70,91.33,month-to-month,,False,2020-02-25,Customer called about billing issue number 55 and asked for a callback,CZ,,no
+1056,27,51.57,month-to-month,card,False,2020-02-26,Customer called about billing issue number 56 and asked for a callback,CZ,2024-02-26,yes
+1057,49,86.09,two year,card,False,2020-02-27,Customer called about billing issue number 57 and asked for a callback,CZ,2024-02-27,yes
+1058,68,87.05,month-to-month,card,False,2020-02-28,Customer called about billing issue number 58 and asked for a callback,CZ,,no
+1059,47,56.65,two year,card,True,2020-02-29,Customer called about billing issue number 59 and asked for a callback,CZ,,no
+1060,60,73.26,month-to-month,,True,2020-03-01,Customer called about billing issue number 60 and asked for a callback,CZ,2024-03-01,yes
+1061,49,53.38,month-to-month,,False,2020-03-02,Customer called about billing issue number 61 and asked for a callback,CZ,,no
+1062,50,,month-to-month,,False,2020-03-03,Customer called about billing issue number 62 and asked for a callback,CZ,2024-03-03,yes
+1063,28,55.92,one year,check,True,2020-03-04,Customer called about billing issue number 63 and asked for a callback,CZ,,no
+1064,63,60.94,month-to-month,bank,True,2020-03-05,Customer called about billing issue number 64 and asked for a callback,CZ,2024-03-05,yes
+1065,10,48.68,one year,card,True,2020-03-06,Customer called about billing issue number 65 and asked for a callback,CZ,2024-03-06,yes
+1066,42,63.08,one year,check,True,2020-03-07,Customer called about billing issue number 66 and asked for a callback,CZ,,no
+1067,52,69.88,month-to-month,card,True,2020-03-08,Customer called about billing issue number 67 and asked for a callback,CZ,,no
+1068,61,85.36,month-to-month,,True,2020-03-09,Customer called about billing issue number 68 and asked for a callback,CZ,2024-03-09,yes
+1069,38,57.79,one year,bank,False,2020-03-10,Customer called about billing issue number 69 and asked for a callback,CZ,,no
+1070,27,66.28,month-to-month,check,True,2020-03-11,Customer called about billing issue number 70 and asked for a callback,CZ,,no
+1071,23,41.67,month-to-month,bank,False,2020-03-12,Customer called about billing issue number 71 and asked for a callback,CZ,2024-03-12,yes
+1072,31,53.45,month-to-month,,True,2020-03-13,Customer called about billing issue number 72 and asked for a callback,CZ,2024-03-13,yes
+1073,35,125.12,one year,check,True,2020-03-14,Customer called about billing issue number 73 and asked for a callback,CZ,2024-03-14,yes
+1074,52,90.82,two year,,False,2020-03-15,Customer called about billing issue number 74 and asked for a callback,CZ,,no
+1075,64,54.37,two year,check,False,2020-03-16,Customer called about billing issue number 75 and asked for a callback,CZ,,no
+1076,6,43.25,one year,,True,2020-03-17,Customer called about billing issue number 76 and asked for a callback,CZ,,no
+1077,67,50.49,month-to-month,card,False,2020-03-18,Customer called about billing issue number 77 and asked for a callback,CZ,,no
+1078,38,69.57,month-to-month,bank,True,2020-03-19,Customer called about billing issue number 78 and asked for a callback,CZ,,no
+1079,26,70.69,month-to-month,bank,True,2020-03-20,Customer called about billing issue number 79 and asked for a callback,CZ,2024-03-20,yes
+1080,48,55.11,two year,card,False,2020-03-21,Customer called about billing issue number 80 and asked for a callback,CZ,,no
+1081,41,44.27,one year,card,True,2020-03-22,Customer called about billing issue number 81 and asked for a callback,CZ,2024-03-22,yes
+1082,19,98.45,month-to-month,bank,False,2020-03-23,Customer called about billing issue number 82 and asked for a callback,CZ,2024-03-23,yes
+1083,23,79.03,one year,,False,2020-03-24,Customer called about billing issue number 83 and asked for a callback,CZ,2024-03-24,yes
+1084,52,62.51,month-to-month,check,True,2020-03-25,Customer called about billing issue number 84 and asked for a callback,CZ,,no
+1085,43,65.59,two year,bank,False,2020-03-26,Customer called about billing issue number 85 and asked for a callback,CZ,,no
+1086,36,59.41,month-to-month,,True,2020-03-27,Customer called about billing issue number 86 and asked for a callback,CZ,2024-03-27,yes
+1087,24,11.28,two year,check,True,2020-03-28,Customer called about billing issue number 87 and asked for a callback,CZ,2024-03-28,yes
+1088,55,72.31,month-to-month,card,True,2020-03-29,Customer called about billing issue number 88 and asked for a callback,CZ,,no
+1089,28,48.59,one year,bank,True,2020-03-30,Customer called about billing issue number 89 and asked for a callback,CZ,2024-03-30,yes
+1090,24,49.95,month-to-month,check,False,2020-03-31,Customer called about billing issue number 90 and asked for a callback,CZ,2024-03-31,yes
+1091,64,57.19,month-to-month,card,False,2020-04-01,Customer called about billing issue number 91 and asked for a callback,CZ,,no
+1092,19,84.65,month-to-month,bank,True,2020-04-02,Customer called about billing issue number 92 and asked for a callback,CZ,2024-04-02,yes
+1093,17,46.59,two year,card,True,2020-04-03,Customer called about billing issue number 93 and asked for a callback,CZ,2024-04-03,yes
+1094,51,41.31,month-to-month,card,True,2020-04-04,Customer called about billing issue number 94 and asked for a callback,CZ,,no
+1095,45,82.8,one year,card,True,2020-04-05,Customer called about billing issue number 95 and asked for a callback,CZ,2024-04-05,yes
+1096,4,85.09,one year,bank,False,2020-04-06,Customer called about billing issue number 96 and asked for a callback,CZ,2024-04-06,yes
+1097,6,50.82,two year,check,False,2020-04-07,Customer called about billing issue number 97 and asked for a callback,CZ,,no
+1098,27,81.25,month-to-month,check,False,2020-04-08,Customer called about billing issue number 98 and asked for a callback,CZ,2024-04-08,yes
+1099,60,64.17,two year,,False,2020-04-09,Customer called about billing issue number 99 and asked for a callback,CZ,,no
+1100,29,76.03,one year,card,True,2020-04-10,Customer called about billing issue number 100 and asked for a callback,CZ,,no
+1101,56,44.78,two year,card,True,2020-04-11,Customer called about billing issue number 101 and asked for a callback,CZ,,no
+1102,23,86.66,one year,card,False,2020-04-12,Customer called about billing issue number 102 and asked for a callback,CZ,2024-04-12,yes
+1103,17,94.07,two year,card,False,2020-04-13,Customer called about billing issue number 103 and asked for a callback,CZ,2024-04-13,yes
+1104,57,82.74,two year,bank,True,2020-04-14,Customer called about billing issue number 104 and asked for a callback,CZ,,no
+1105,63,81.17,two year,,False,2020-04-15,Customer called about billing issue number 105 and asked for a callback,CZ,,no
+1106,6,,month-to-month,check,False,2020-04-16,Customer called about billing issue number 106 and asked for a callback,CZ,,no
+1107,5,75.21,month-to-month,check,False,2020-04-17,Customer called about billing issue number 107 and asked for a callback,CZ,2024-04-17,yes
+1108,48,,one year,bank,False,2020-04-18,Customer called about billing issue number 108 and asked for a callback,CZ,,no
+1109,24,67.06,month-to-month,,False,2020-04-19,Customer called about billing issue number 109 and asked for a callback,CZ,2024-04-19,yes
+1110,41,57.39,month-to-month,,True,2020-04-20,Customer called about billing issue number 110 and asked for a callback,CZ,,no
+1111,11,71.11,month-to-month,bank,True,2020-04-21,Customer called about billing issue number 111 and asked for a callback,CZ,2024-04-21,yes
+1112,62,78.24,one year,check,False,2020-04-22,Customer called about billing issue number 112 and asked for a callback,CZ,,no
+1113,32,64.72,two year,bank,True,2020-04-23,Customer called about billing issue number 113 and asked for a callback,CZ,,no
+1114,64,60.73,month-to-month,bank,False,2020-04-24,Customer called about billing issue number 114 and asked for a callback,CZ,,no
+1115,57,94.6,one year,bank,True,2020-04-25,Customer called about billing issue number 115 and asked for a callback,CZ,2024-04-25,yes
+1116,51,47.89,month-to-month,,True,2020-04-26,Customer called about billing issue number 116 and asked for a callback,CZ,,no
+1117,17,90.6,one year,,False,2020-04-27,Customer called about billing issue number 117 and asked for a callback,CZ,2024-04-27,yes
+1118,55,73.54,month-to-month,,True,2020-04-28,Customer called about billing issue number 118 and asked for a callback,CZ,,no
+1119,4,53.91,one year,card,True,2020-04-29,Customer called about billing issue number 119 and asked for a callback,CZ,,no
+1120,41,64.2,one year,bank,False,2020-04-30,Customer called about billing issue number 120 and asked for a callback,CZ,,no
+1121,29,51.6,two year,bank,True,2020-05-01,Customer called about billing issue number 121 and asked for a callback,CZ,,no
+1122,71,83.5,month-to-month,,False,2020-05-02,Customer called about billing issue number 122 and asked for a callback,CZ,2024-05-02,yes
+1123,15,76.96,two year,check,True,2020-05-03,Customer called about billing issue number 123 and asked for a callback,CZ,,no
+1124,68,58.86,month-to-month,,False,2020-05-04,Customer called about billing issue number 124 and asked for a callback,CZ,2024-05-04,yes
+1125,7,47.96,month-to-month,,True,2020-05-05,Customer called about billing issue number 125 and asked for a callback,CZ,,no
+1126,45,76.03,one year,card,True,2020-05-06,Customer called about billing issue number 126 and asked for a callback,CZ,,no
+1127,42,,month-to-month,,True,2020-05-07,Customer called about billing issue number 127 and asked for a callback,CZ,2024-05-07,yes
+1128,64,67.72,one year,check,False,2020-05-08,Customer called about billing issue number 128 and asked for a callback,CZ,,no
+1129,22,78.37,one year,card,True,2020-05-09,Customer called about billing issue number 129 and asked for a callback,CZ,,no
+1130,65,62.48,month-to-month,,True,2020-05-10,Customer called about billing issue number 130 and asked for a callback,CZ,,no
+1131,48,71.35,month-to-month,,False,2020-05-11,Customer called about billing issue number 131 and asked for a callback,CZ,,no
+1132,64,64.17,two year,check,False,2020-05-12,Customer called about billing issue number 132 and asked for a callback,CZ,,no
+1133,15,75.88,two year,,False,2020-05-13,Customer called about billing issue number 133 and asked for a callback,CZ,,no
+1134,54,39.8,month-to-month,bank,True,2020-05-14,Customer called about billing issue number 134 and asked for a callback,CZ,,no
+1135,67,82.88,two year,bank,True,2020-05-15,Customer called about billing issue number 135 and asked for a callback,CZ,2024-05-15,yes
+1136,4,65.4,month-to-month,,False,2020-05-16,Customer called about billing issue number 136 and asked for a callback,CZ,2024-05-16,yes
+1137,26,77.17,month-to-month,check,True,2020-05-17,Customer called about billing issue number 137 and asked for a callback,CZ,2024-05-17,yes
+1138,46,63.19,one year,,False,2020-05-18,Customer called about billing issue number 138 and asked for a callback,CZ,2024-05-18,yes
+1139,8,76.41,one year,bank,True,2020-05-19,Customer called about billing issue number 139 and asked for a callback,CZ,2024-05-19,yes
+1140,37,48.55,two year,bank,False,2020-05-20,Customer called about billing issue number 140 and asked for a callback,CZ,,no
+1141,45,93.78,month-to-month,card,False,2020-05-21,Customer called about billing issue number 141 and asked for a callback,CZ,2024-05-21,yes
+1142,55,35.93,one year,,True,2020-05-22,Customer called about billing issue number 142 and asked for a callback,CZ,2024-05-22,yes
+1143,66,49.22,month-to-month,bank,False,2020-05-23,Customer called about billing issue number 143 and asked for a callback,CZ,2024-05-23,yes
+1144,30,74.71,month-to-month,card,False,2020-05-24,Customer called about billing issue number 144 and asked for a callback,CZ,2024-05-24,yes
+1145,32,99.26,one year,,True,2020-05-25,Customer called about billing issue number 145 and asked for a callback,CZ,,no
+1146,34,75.56,two year,bank,True,2020-05-26,Customer called about billing issue number 146 and asked for a callback,CZ,2024-05-26,yes
+1147,68,65.04,month-to-month,check,True,2020-05-27,Customer called about billing issue number 147 and asked for a callback,CZ,,no
+1148,14,41.5,month-to-month,,True,2020-05-28,Customer called about billing issue number 148 and asked for a callback,CZ,,no
+1149,36,66.17,two year,card,False,2020-05-29,Customer called about billing issue number 149 and asked for a callback,CZ,,no
+1150,4,69.6,two year,,False,2020-05-30,Customer called about billing issue number 150 and asked for a callback,CZ,2024-05-30,yes
+1151,31,103.81,month-to-month,check,False,2020-05-31,Customer called about billing issue number 151 and asked for a callback,CZ,,no
+1152,68,82.44,two year,check,False,2020-06-01,Customer called about billing issue number 152 and asked for a callback,CZ,,no
+1153,45,39.42,month-to-month,check,True,2020-06-02,Customer called about billing issue number 153 and asked for a callback,CZ,2024-06-02,yes
+1154,25,110.54,two year,check,False,2020-06-03,Customer called about billing issue number 154 and asked for a callback,CZ,,no
+1155,71,62.1,one year,,True,2020-06-04,Customer called about billing issue number 155 and asked for a callback,CZ,,no
+1156,43,52.41,month-to-month,,False,2020-06-05,Customer called about billing issue number 156 and asked for a callback,CZ,,no
+1157,68,,month-to-month,check,True,2020-06-06,Customer called about billing issue number 157 and asked for a callback,CZ,,no
+1158,2,69.0,one year,card,True,2020-06-07,Customer called about billing issue number 158 and asked for a callback,CZ,,no
+1159,33,62.65,month-to-month,card,True,2020-06-08,Customer called about billing issue number 159 and asked for a callback,CZ,,no
+1160,60,74.38,one year,check,True,2020-06-09,Customer called about billing issue number 160 and asked for a callback,CZ,,no
+1161,54,86.9,one year,,False,2020-06-10,Customer called about billing issue number 161 and asked for a callback,CZ,,no
+1162,29,89.87,month-to-month,card,False,2020-06-11,Customer called about billing issue number 162 and asked for a callback,CZ,2024-06-11,yes
+1163,36,42.5,one year,bank,True,2020-06-12,Customer called about billing issue number 163 and asked for a callback,CZ,,no
+1164,30,109.97,month-to-month,card,False,2020-06-13,Customer called about billing issue number 164 and asked for a callback,CZ,2024-06-13,yes
+1165,38,88.94,month-to-month,check,False,2020-06-14,Customer called about billing issue number 165 and asked for a callback,CZ,2024-06-14,yes
+1166,17,62.42,month-to-month,,False,2020-06-15,Customer called about billing issue number 166 and asked for a callback,CZ,2024-06-15,yes
+1167,56,53.63,month-to-month,check,False,2020-06-16,Customer called about billing issue number 167 and asked for a callback,CZ,,no
+1168,6,50.62,month-to-month,,True,2020-06-17,Customer called about billing issue number 168 and asked for a callback,CZ,2024-06-17,yes
+1169,30,,two year,,True,2020-06-18,Customer called about billing issue number 169 and asked for a callback,CZ,2024-06-18,yes
+1170,21,,month-to-month,check,True,2020-06-19,Customer called about billing issue number 170 and asked for a callback,CZ,2024-06-19,yes
+1171,53,54.7,month-to-month,,True,2020-06-20,Customer called about billing issue number 171 and asked for a callback,CZ,,no
+1172,54,86.23,month-to-month,card,False,2020-06-21,Customer called about billing issue number 172 and asked for a callback,CZ,2024-06-21,yes
+1173,51,77.29,two year,bank,True,2020-06-22,Customer called about billing issue number 173 and asked for a callback,CZ,,no
+1174,66,62.11,month-to-month,card,True,2020-06-23,Customer called about billing issue number 174 and asked for a callback,CZ,,no
+1175,67,84.68,month-to-month,card,True,2020-06-24,Customer called about billing issue number 175 and asked for a callback,CZ,,no
+1176,14,97.35,month-to-month,bank,False,2020-06-25,Customer called about billing issue number 176 and asked for a callback,CZ,,no
+1177,9,48.11,two year,check,True,2020-06-26,Customer called about billing issue number 177 and asked for a callback,CZ,2024-06-26,yes
+1178,10,57.93,month-to-month,check,False,2020-06-27,Customer called about billing issue number 178 and asked for a callback,CZ,2024-06-27,yes
+1179,52,88.85,month-to-month,card,True,2020-06-28,Customer called about billing issue number 179 and asked for a callback,CZ,2024-06-28,yes
+1180,69,84.38,one year,bank,False,2020-06-29,Customer called about billing issue number 180 and asked for a callback,CZ,,no
+1181,66,74.53,one year,card,True,2020-06-30,Customer called about billing issue number 181 and asked for a callback,CZ,,no
+1182,48,93.25,month-to-month,bank,True,2020-07-01,Customer called about billing issue number 182 and asked for a callback,CZ,2024-07-01,yes
+1183,69,48.24,month-to-month,card,False,2020-07-02,Customer called about billing issue number 183 and asked for a callback,CZ,,no
+1184,62,40.42,month-to-month,,True,2020-07-03,Customer called about billing issue number 184 and asked for a callback,CZ,2024-07-03,yes
+1185,2,52.67,month-to-month,check,True,2020-07-04,Customer called about billing issue number 185 and asked for a callback,CZ,2024-07-04,yes
+1186,9,72.45,two year,card,False,2020-07-05,Customer called about billing issue number 186 and asked for a callback,CZ,2024-07-05,yes
+1187,62,54.08,two year,,True,2020-07-06,Customer called about billing issue number 187 and asked for a callback,CZ,,no
+1188,6,60.26,one year,check,False,2020-07-07,Customer called about billing issue number 188 and asked for a callback,CZ,2024-07-07,yes
+1189,70,50.5,month-to-month,card,True,2020-07-08,Customer called about billing issue number 189 and asked for a callback,CZ,,no
+1190,59,57.59,one year,check,True,2020-07-09,Customer called about billing issue number 190 and asked for a callback,CZ,,no
+1191,68,49.9,one year,bank,True,2020-07-10,Customer called about billing issue number 191 and asked for a callback,CZ,,no
+1192,26,77.35,month-to-month,card,True,2020-07-11,Customer called about billing issue number 192 and asked for a callback,CZ,2024-07-11,yes
+1193,11,85.9,month-to-month,bank,True,2020-07-12,Customer called about billing issue number 193 and asked for a callback,CZ,2024-07-12,yes
+1194,37,60.39,month-to-month,card,False,2020-07-13,Customer called about billing issue number 194 and asked for a callback,CZ,2024-07-13,yes
+1195,70,65.85,one year,,True,2020-07-14,Customer called about billing issue number 195 and asked for a callback,CZ,2024-07-14,yes
+1196,27,58.38,one year,card,False,2020-07-15,Customer called about billing issue number 196 and asked for a callback,CZ,2024-07-15,yes
+1197,64,80.63,month-to-month,check,True,2020-07-16,Customer called about billing issue number 197 and asked for a callback,CZ,,no
+1198,28,71.78,month-to-month,check,True,2020-07-17,Customer called about billing issue number 198 and asked for a callback,CZ,,no
+1199,59,101.88,two year,bank,False,2020-07-18,Customer called about billing issue number 199 and asked for a callback,CZ,,no
+1200,17,48.09,month-to-month,bank,True,2020-07-19,Customer called about billing issue number 200 and asked for a callback,CZ,2024-07-19,yes
+1201,35,77.25,month-to-month,,False,2020-07-20,Customer called about billing issue number 201 and asked for a callback,CZ,2024-07-20,yes
+1202,24,78.88,month-to-month,,True,2020-07-21,Customer called about billing issue number 202 and asked for a callback,CZ,2024-07-21,yes
+1203,17,62.79,month-to-month,check,True,2020-07-22,Customer called about billing issue number 203 and asked for a callback,CZ,2024-07-22,yes
+1204,64,81.67,two year,check,True,2020-07-23,Customer called about billing issue number 204 and asked for a callback,CZ,,no
+1205,57,41.23,month-to-month,check,True,2020-07-24,Customer called about billing issue number 205 and asked for a callback,CZ,,no
+1206,10,112.38,two year,bank,False,2020-07-25,Customer called about billing issue number 206 and asked for a callback,CZ,2024-07-25,yes
+1207,66,43.16,one year,check,False,2020-07-26,Customer called about billing issue number 207 and asked for a callback,CZ,,no
+1208,69,88.4,month-to-month,card,True,2020-07-27,Customer called about billing issue number 208 and asked for a callback,CZ,2024-07-27,yes
+1209,19,47.58,month-to-month,check,False,2020-07-28,Customer called about billing issue number 209 and asked for a callback,CZ,2024-07-28,yes
+1210,31,93.02,two year,bank,True,2020-07-29,Customer called about billing issue number 210 and asked for a callback,CZ,2024-07-29,yes
+1211,39,62.3,one year,bank,True,2020-07-30,Customer called about billing issue number 211 and asked for a callback,CZ,,no
+1212,47,73.17,month-to-month,check,True,2020-07-31,Customer called about billing issue number 212 and asked for a callback,CZ,,no
+1213,32,71.07,month-to-month,,True,2020-08-01,Customer called about billing issue number 213 and asked for a callback,CZ,2024-08-01,yes
+1214,11,92.01,month-to-month,,True,2020-08-02,Customer called about billing issue number 214 and asked for a callback,CZ,2024-08-02,yes
+1215,67,63.57,two year,check,False,2020-08-03,Customer called about billing issue number 215 and asked for a callback,CZ,,no
+1216,50,10.66,month-to-month,bank,False,2020-08-04,Customer called about billing issue number 216 and asked for a callback,CZ,,no
+1217,3,54.8,two year,bank,True,2020-08-05,Customer called about billing issue number 217 and asked for a callback,CZ,2024-08-05,yes
+1218,58,73.67,two year,,True,2020-08-06,Customer called about billing issue number 218 and asked for a callback,CZ,2024-08-06,yes
+1219,52,61.19,month-to-month,card,True,2020-08-07,Customer called about billing issue number 219 and asked for a callback,CZ,2024-08-07,yes
+1220,14,85.4,month-to-month,,True,2020-08-08,Customer called about billing issue number 220 and asked for a callback,CZ,2024-08-08,yes
+1221,44,90.31,month-to-month,card,True,2020-08-09,Customer called about billing issue number 221 and asked for a callback,CZ,,no
+1222,36,67.04,one year,bank,True,2020-08-10,Customer called about billing issue number 222 and asked for a callback,CZ,,no
+1223,3,40.21,month-to-month,,False,2020-08-11,Customer called about billing issue number 223 and asked for a callback,CZ,2024-08-11,yes
+1224,66,97.68,one year,,True,2020-08-12,Customer called about billing issue number 224 and asked for a callback,CZ,,no
+1225,52,91.66,month-to-month,,True,2020-08-13,Customer called about billing issue number 225 and asked for a callback,CZ,2024-08-13,yes
+1226,23,64.02,one year,check,True,2020-08-14,Customer called about billing issue number 226 and asked for a callback,CZ,2024-08-14,yes
+1227,2,112.17,month-to-month,card,False,2020-08-15,Customer called about billing issue number 227 and asked for a callback,CZ,2024-08-15,yes
+1228,7,63.02,one year,bank,False,2020-08-16,Customer called about billing issue number 228 and asked for a callback,CZ,2024-08-16,yes
+1229,54,47.26,month-to-month,card,True,2020-08-17,Customer called about billing issue number 229 and asked for a callback,CZ,,no
+1230,11,66.88,month-to-month,card,False,2020-08-18,Customer called about billing issue number 230 and asked for a callback,CZ,2024-08-18,yes
+1231,37,91.56,month-to-month,check,True,2020-08-19,Customer called about billing issue number 231 and asked for a callback,CZ,2024-08-19,yes
+1232,64,51.25,two year,,False,2020-08-20,Customer called about billing issue number 232 and asked for a callback,CZ,,no
+1233,66,109.02,two year,card,True,2020-08-21,Customer called about billing issue number 233 and asked for a callback,CZ,2024-08-21,yes
+1234,20,52.07,one year,check,True,2020-08-22,Customer called about billing issue number 234 and asked for a callback,CZ,,no
+1235,5,89.09,month-to-month,check,False,2020-08-23,Customer called about billing issue number 235 and asked for a callback,CZ,2024-08-23,yes
+1236,36,,two year,check,True,2020-08-24,Customer called about billing issue number 236 and asked for a callback,CZ,2024-08-24,yes
+1237,60,66.92,month-to-month,card,True,2020-08-25,Customer called about billing issue number 237 and asked for a callback,CZ,2024-08-25,yes
+1238,45,91.61,one year,,True,2020-08-26,Customer called about billing issue number 238 and asked for a callback,CZ,2024-08-26,yes
+1239,5,40.0,one year,bank,True,2020-08-27,Customer called about billing issue number 239 and asked for a callback,CZ,,no
+1240,47,97.15,month-to-month,check,True,2020-08-28,Customer called about billing issue number 240 and asked for a callback,CZ,2024-08-28,yes
+1241,25,68.73,two year,bank,False,2020-08-29,Customer called about billing issue number 241 and asked for a callback,CZ,2024-08-29,yes
+1242,17,59.15,month-to-month,,False,2020-08-30,Customer called about billing issue number 242 and asked for a callback,CZ,2024-08-30,yes
+1243,31,84.98,one year,card,False,2020-08-31,Customer called about billing issue number 243 and asked for a callback,CZ,,no
+1244,63,91.2,month-to-month,card,False,2020-09-01,Customer called about billing issue number 244 and asked for a callback,CZ,2024-09-01,yes
+1245,69,85.4,one year,,False,2020-09-02,Customer called about billing issue number 245 and asked for a callback,CZ,,no
+1246,11,109.99,month-to-month,,True,2020-09-03,Customer called about billing issue number 246 and asked for a callback,CZ,,no
+1247,40,91.61,month-to-month,bank,True,2020-09-04,Customer called about billing issue number 247 and asked for a callback,CZ,,no
+1248,55,95.67,one year,bank,True,2020-09-05,Customer called about billing issue number 248 and asked for a callback,CZ,,no
+1249,19,59.2,month-to-month,,True,2020-09-06,Customer called about billing issue number 249 and asked for a callback,CZ,2024-09-06,yes
+1250,20,72.13,month-to-month,card,True,2020-09-07,Customer called about billing issue number 250 and asked for a callback,CZ,2024-09-07,yes
+1251,18,81.26,two year,card,True,2020-09-08,Customer called about billing issue number 251 and asked for a callback,CZ,,no
+1252,15,69.65,two year,bank,True,2020-09-09,Customer called about billing issue number 252 and asked for a callback,CZ,,no
+1253,64,76.03,one year,,True,2020-09-10,Customer called about billing issue number 253 and asked for a callback,CZ,,no
+1254,16,78.52,one year,card,False,2020-09-11,Customer called about billing issue number 254 and asked for a callback,CZ,,no
+1255,17,86.88,month-to-month,card,False,2020-09-12,Customer called about billing issue number 255 and asked for a callback,CZ,2024-09-12,yes
+1256,9,67.97,two year,card,False,2020-09-13,Customer called about billing issue number 256 and asked for a callback,CZ,2024-09-13,yes
+1257,9,63.0,two year,bank,True,2020-09-14,Customer called about billing issue number 257 and asked for a callback,CZ,,no
+1258,56,53.43,one year,card,True,2020-09-15,Customer called about billing issue number 258 and asked for a callback,CZ,2024-09-15,yes
+1259,21,52.17,month-to-month,,False,2020-09-16,Customer called about billing issue number 259 and asked for a callback,CZ,,no
+1260,57,93.45,month-to-month,bank,True,2020-09-17,Customer called about billing issue number 260 and asked for a callback,CZ,2024-09-17,yes
+1261,42,68.31,one year,card,False,2020-09-18,Customer called about billing issue number 261 and asked for a callback,CZ,,no
+1262,61,85.74,month-to-month,card,True,2020-09-19,Customer called about billing issue number 262 and asked for a callback,CZ,,no
+1263,40,44.05,two year,,True,2020-09-20,Customer called about billing issue number 263 and asked for a callback,CZ,2024-09-20,yes
+1264,55,31.24,two year,check,True,2020-09-21,Customer called about billing issue number 264 and asked for a callback,CZ,,no
+1265,58,49.02,one year,card,False,2020-09-22,Customer called about billing issue number 265 and asked for a callback,CZ,,no
+1266,5,92.93,month-to-month,,False,2020-09-23,Customer called about billing issue number 266 and asked for a callback,CZ,2024-09-23,yes
+1267,40,91.36,one year,check,True,2020-09-24,Customer called about billing issue number 267 and asked for a callback,CZ,,no
+1268,33,76.64,one year,,False,2020-09-25,Customer called about billing issue number 268 and asked for a callback,CZ,,no
+1269,21,53.96,one year,,True,2020-09-26,Customer called about billing issue number 269 and asked for a callback,CZ,2024-09-26,yes
+1270,33,67.38,two year,bank,False,2020-09-27,Customer called about billing issue number 270 and asked for a callback,CZ,,no
+1271,30,,one year,card,True,2020-09-28,Customer called about billing issue number 271 and asked for a callback,CZ,2024-09-28,yes
+1272,35,63.1,one year,,True,2020-09-29,Customer called about billing issue number 272 and asked for a callback,CZ,,no
+1273,59,19.88,one year,bank,True,2020-09-30,Customer called about billing issue number 273 and asked for a callback,CZ,,no
+1274,59,52.84,two year,bank,True,2020-10-01,Customer called about billing issue number 274 and asked for a callback,CZ,,no
+1275,45,66.2,month-to-month,check,False,2020-10-02,Customer called about billing issue number 275 and asked for a callback,CZ,,no
+1276,51,100.33,two year,bank,True,2020-10-03,Customer called about billing issue number 276 and asked for a callback,CZ,,no
+1277,69,73.21,one year,check,True,2020-10-04,Customer called about billing issue number 277 and asked for a callback,CZ,,no
+1278,46,98.02,month-to-month,check,True,2020-10-05,Customer called about billing issue number 278 and asked for a callback,CZ,2024-10-05,yes
+1279,27,62.13,month-to-month,bank,True,2020-10-06,Customer called about billing issue number 279 and asked for a callback,CZ,2024-10-06,yes
+1280,6,64.95,month-to-month,bank,True,2020-10-07,Customer called about billing issue number 280 and asked for a callback,CZ,,no
+1281,40,-7.99,one year,card,True,2020-10-08,Customer called about billing issue number 281 and asked for a callback,CZ,,no
+1282,17,79.27,two year,card,True,2020-10-09,Customer called about billing issue number 282 and asked for a callback,CZ,2024-10-09,yes
+1283,43,80.94,month-to-month,,True,2020-10-10,Customer called about billing issue number 283 and asked for a callback,CZ,2024-10-10,yes
+1284,2,,month-to-month,check,False,2020-10-11,Customer called about billing issue number 284 and asked for a callback,CZ,2024-10-11,yes
+1285,61,60.26,one year,card,True,2020-10-12,Customer called about billing issue number 285 and asked for a callback,CZ,,no
+1286,68,71.88,one year,card,True,2020-10-13,Customer called about billing issue number 286 and asked for a callback,CZ,,no
+1287,11,55.89,two year,,True,2020-10-14,Customer called about billing issue number 287 and asked for a callback,CZ,,no
+1288,59,46.47,one year,,True,2020-10-15,Customer called about billing issue number 288 and asked for a callback,CZ,,no
+1289,29,55.74,two year,card,True,2020-10-16,Customer called about billing issue number 289 and asked for a callback,CZ,,no
+1290,3,63.1,month-to-month,,True,2020-10-17,Customer called about billing issue number 290 and asked for a callback,CZ,2024-10-17,yes
+1291,65,97.11,one year,card,False,2020-10-18,Customer called about billing issue number 291 and asked for a callback,CZ,2024-10-18,yes
+1292,67,70.04,one year,,True,2020-10-19,Customer called about billing issue number 292 and asked for a callback,CZ,,no
+1293,4,54.19,one year,check,False,2020-10-20,Customer called about billing issue number 293 and asked for a callback,CZ,2024-10-20,yes
+1294,43,72.84,month-to-month,card,False,2020-10-21,Customer called about billing issue number 294 and asked for a callback,CZ,2024-10-21,yes
+1295,59,,month-to-month,,False,2020-10-22,Customer called about billing issue number 295 and asked for a callback,CZ,2024-10-22,yes
+1296,57,56.48,month-to-month,,False,2020-10-23,Customer called about billing issue number 296 and asked for a callback,CZ,,no
+1297,30,92.86,two year,check,True,2020-10-24,Customer called about billing issue number 297 and asked for a callback,CZ,2024-10-24,yes
+1298,62,32.23,one year,check,False,2020-10-25,Customer called about billing issue number 298 and asked for a callback,CZ,,no
+1299,59,65.73,two year,card,False,2020-10-26,Customer called about billing issue number 299 and asked for a callback,CZ,,no
+1300,9,83.3,month-to-month,,True,2020-10-27,Customer called about billing issue number 300 and asked for a callback,CZ,2024-10-27,yes
+1301,1,43.23,month-to-month,card,True,2020-10-28,Customer called about billing issue number 301 and asked for a callback,CZ,2024-10-28,yes
+1302,8,,one year,bank,True,2020-10-29,Customer called about billing issue number 302 and asked for a callback,CZ,2024-10-29,yes
+1303,26,95.86,month-to-month,card,True,2020-10-30,Customer called about billing issue number 303 and asked for a callback,CZ,2024-10-30,yes
+1304,8,79.07,month-to-month,,False,2020-10-31,Customer called about billing issue number 304 and asked for a callback,CZ,2024-10-31,yes
+1305,6,36.2,one year,,True,2020-11-01,Customer called about billing issue number 305 and asked for a callback,CZ,2024-11-01,yes
+1306,19,,month-to-month,card,False,2020-11-02,Customer called about billing issue number 306 and asked for a callback,CZ,2024-11-02,yes
+1307,47,94.65,month-to-month,bank,True,2020-11-03,Customer called about billing issue number 307 and asked for a callback,CZ,2024-11-03,yes
+1308,38,75.97,month-to-month,card,False,2020-11-04,Customer called about billing issue number 308 and asked for a callback,CZ,2024-11-04,yes
+1309,20,69.8,month-to-month,,True,2020-11-05,Customer called about billing issue number 309 and asked for a callback,CZ,2024-11-05,yes
+1310,68,78.82,one year,,True,2020-11-06,Customer called about billing issue number 310 and asked for a callback,CZ,,no
+1311,50,84.42,month-to-month,,False,2020-11-07,Customer called about billing issue number 311 and asked for a callback,CZ,2024-11-07,yes
+1312,46,55.83,month-to-month,check,True,2020-11-08,Customer called about billing issue number 312 and asked for a callback,CZ,2024-11-08,yes
+1313,68,64.19,two year,bank,True,2020-11-09,Customer called about billing issue number 313 and asked for a callback,CZ,,no
+1314,56,72.86,two year,,True,2020-11-10,Customer called about billing issue number 314 and asked for a callback,CZ,2024-11-10,yes
+1315,10,59.12,month-to-month,,False,2020-11-11,Customer called about billing issue number 315 and asked for a callback,CZ,2024-11-11,yes
+1316,3,67.33,two year,,False,2020-11-12,Customer called about billing issue number 316 and asked for a callback,CZ,,no
+1317,62,95.96,month-to-month,check,True,2020-11-13,Customer called about billing issue number 317 and asked for a callback,CZ,2024-11-13,yes
+1318,29,50.64,one year,check,False,2020-11-14,Customer called about billing issue number 318 and asked for a callback,CZ,2024-11-14,yes
+1319,5,108.53,one year,check,False,2020-11-15,Customer called about billing issue number 319 and asked for a callback,CZ,2024-11-15,yes
+1320,34,107.59,month-to-month,bank,False,2020-11-16,Customer called about billing issue number 320 and asked for a callback,CZ,2024-11-16,yes
+1321,28,,one year,bank,True,2020-11-17,Customer called about billing issue number 321 and asked for a callback,CZ,,no
+1322,31,67.18,month-to-month,bank,True,2020-11-18,Customer called about billing issue number 322 and asked for a callback,CZ,,no
+1323,31,76.85,month-to-month,bank,False,2020-11-19,Customer called about billing issue number 323 and asked for a callback,CZ,,no
+1324,23,54.78,month-to-month,card,False,2020-11-20,Customer called about billing issue number 324 and asked for a callback,CZ,2024-11-20,yes
+1325,35,55.18,one year,bank,False,2020-11-21,Customer called about billing issue number 325 and asked for a callback,CZ,,no
+1326,35,65.25,one year,card,True,2020-11-22,Customer called about billing issue number 326 and asked for a callback,CZ,,no
+1327,70,,one year,bank,False,2020-11-23,Customer called about billing issue number 327 and asked for a callback,CZ,,no
+1328,50,,one year,bank,True,2020-11-24,Customer called about billing issue number 328 and asked for a callback,CZ,,no
+1329,56,106.53,month-to-month,bank,False,2020-11-25,Customer called about billing issue number 329 and asked for a callback,CZ,2024-11-25,yes
+1330,1,75.8,month-to-month,card,False,2020-11-26,Customer called about billing issue number 330 and asked for a callback,CZ,2024-11-26,yes
+1331,22,,two year,bank,True,2020-11-27,Customer called about billing issue number 331 and asked for a callback,CZ,2024-11-27,yes
+1332,70,98.99,month-to-month,bank,True,2020-11-28,Customer called about billing issue number 332 and asked for a callback,CZ,2024-11-28,yes
+1333,20,82.53,one year,bank,True,2020-11-29,Customer called about billing issue number 333 and asked for a callback,CZ,,no
+1334,37,,one year,,False,2020-11-30,Customer called about billing issue number 334 and asked for a callback,CZ,,no
+1335,62,63.38,one year,card,False,2020-12-01,Customer called about billing issue number 335 and asked for a callback,CZ,,no
+1336,46,106.28,month-to-month,card,False,2020-12-02,Customer called about billing issue number 336 and asked for a callback,CZ,2024-12-02,yes
+1337,63,,one year,,True,2020-12-03,Customer called about billing issue number 337 and asked for a callback,CZ,,no
+1338,12,65.93,month-to-month,check,False,2020-12-04,Customer called about billing issue number 338 and asked for a callback,CZ,2024-12-04,yes
+1339,37,38.46,one year,check,True,2020-12-05,Customer called about billing issue number 339 and asked for a callback,CZ,,no
+1340,46,77.46,month-to-month,check,False,2020-12-06,Customer called about billing issue number 340 and asked for a callback,CZ,2024-12-06,yes
+1341,25,47.13,month-to-month,bank,False,2020-12-07,Customer called about billing issue number 341 and asked for a callback,CZ,2024-12-07,yes
+1342,41,35.68,one year,bank,True,2020-12-08,Customer called about billing issue number 342 and asked for a callback,CZ,2024-12-08,yes
+1343,71,64.42,month-to-month,,True,2020-12-09,Customer called about billing issue number 343 and asked for a callback,CZ,,no
+1344,53,75.63,month-to-month,bank,False,2020-12-10,Customer called about billing issue number 344 and asked for a callback,CZ,,no
+1345,23,95.65,two year,bank,True,2020-12-11,Customer called about billing issue number 345 and asked for a callback,CZ,,no
+1346,5,,one year,,True,2020-12-12,Customer called about billing issue number 346 and asked for a callback,CZ,2024-12-12,yes
+1347,13,86.12,one year,,False,2020-12-13,Customer called about billing issue number 347 and asked for a callback,CZ,2024-12-13,yes
+1348,20,45.48,one year,bank,False,2020-12-14,Customer called about billing issue number 348 and asked for a callback,CZ,,no
+1349,63,69.55,two year,card,True,2020-12-15,Customer called about billing issue number 349 and asked for a callback,CZ,,no
+1350,20,,one year,,True,2020-12-16,Customer called about billing issue number 350 and asked for a callback,CZ,2024-12-16,yes
+1351,58,87.24,month-to-month,card,True,2020-12-17,Customer called about billing issue number 351 and asked for a callback,CZ,,no
+1352,20,72.32,one year,check,False,2020-12-18,Customer called about billing issue number 352 and asked for a callback,CZ,,no
+1353,48,86.08,month-to-month,card,True,2020-12-19,Customer called about billing issue number 353 and asked for a callback,CZ,,no
+1354,38,,two year,,True,2020-12-20,Customer called about billing issue number 354 and asked for a callback,CZ,,no
+1355,69,,one year,,True,2020-12-21,Customer called about billing issue number 355 and asked for a callback,CZ,2024-12-21,yes
+1356,41,78.3,two year,check,True,2020-12-22,Customer called about billing issue number 356 and asked for a callback,CZ,,no
+1357,66,45.0,one year,,False,2020-12-23,Customer called about billing issue number 357 and asked for a callback,CZ,,no
+1358,69,73.51,month-to-month,check,False,2020-12-24,Customer called about billing issue number 358 and asked for a callback,CZ,,no
+1359,54,63.59,one year,bank,True,2020-12-25,Customer called about billing issue number 359 and asked for a callback,CZ,2024-12-25,yes
+1360,45,31.92,one year,card,True,2020-12-26,Customer called about billing issue number 360 and asked for a callback,CZ,,no
+1361,62,89.17,one year,,False,2020-12-27,Customer called about billing issue number 361 and asked for a callback,CZ,,no
+1362,71,62.76,month-to-month,check,False,2020-12-28,Customer called about billing issue number 362 and asked for a callback,CZ,,no
+1363,18,52.95,one year,,False,2020-12-29,Customer called about billing issue number 363 and asked for a callback,CZ,,no
+1364,40,62.45,two year,bank,True,2020-12-30,Customer called about billing issue number 364 and asked for a callback,CZ,,no
+1365,11,72.76,one year,bank,True,2020-12-31,Customer called about billing issue number 365 and asked for a callback,CZ,,no
+1366,8,100.16,month-to-month,bank,True,2021-01-01,Customer called about billing issue number 366 and asked for a callback,CZ,2025-01-01,yes
+1367,48,66.68,two year,check,True,2021-01-02,Customer called about billing issue number 367 and asked for a callback,CZ,2025-01-02,yes
+1368,4,79.45,two year,bank,False,2021-01-03,Customer called about billing issue number 368 and asked for a callback,CZ,2025-01-03,yes
+1369,51,97.47,two year,,False,2021-01-04,Customer called about billing issue number 369 and asked for a callback,CZ,,no
+1370,59,80.67,month-to-month,bank,False,2021-01-05,Customer called about billing issue number 370 and asked for a callback,CZ,,no
+1371,12,91.37,month-to-month,check,False,2021-01-06,Customer called about billing issue number 371 and asked for a callback,CZ,2025-01-06,yes
+1372,49,60.47,one year,bank,True,2021-01-07,Customer called about billing issue number 372 and asked for a callback,CZ,,no
+1373,29,85.42,month-to-month,card,True,2021-01-08,Customer called about billing issue number 373 and asked for a callback,CZ,2025-01-08,yes
+1374,64,68.84,month-to-month,bank,False,2021-01-09,Customer called about billing issue number 374 and asked for a callback,CZ,,no
+1375,65,91.49,one year,check,True,2021-01-10,Customer called about billing issue number 375 and asked for a callback,CZ,,no
+1376,42,49.93,one year,check,False,2021-01-11,Customer called about billing issue number 376 and asked for a callback,CZ,,no
+1377,40,54.41,one year,,False,2021-01-12,Customer called about billing issue number 377 and asked for a callback,CZ,,no
+1378,51,95.37,month-to-month,check,True,2021-01-13,Customer called about billing issue number 378 and asked for a callback,CZ,,no
+1379,42,66.08,one year,check,False,2021-01-14,Customer called about billing issue number 379 and asked for a callback,CZ,,no
+1380,53,,month-to-month,bank,True,2021-01-15,Customer called about billing issue number 380 and asked for a callback,CZ,,no
+1381,14,71.55,one year,bank,True,2021-01-16,Customer called about billing issue number 381 and asked for a callback,CZ,,no
+1382,56,56.21,two year,card,True,2021-01-17,Customer called about billing issue number 382 and asked for a callback,CZ,,no
+1383,38,96.64,month-to-month,check,False,2021-01-18,Customer called about billing issue number 383 and asked for a callback,CZ,2025-01-18,yes
+1384,54,45.02,month-to-month,,False,2021-01-19,Customer called about billing issue number 384 and asked for a callback,CZ,,no
+1385,38,,month-to-month,bank,True,2021-01-20,Customer called about billing issue number 385 and asked for a callback,CZ,,no
+1386,22,76.94,month-to-month,bank,True,2021-01-21,Customer called about billing issue number 386 and asked for a callback,CZ,,no
+1387,7,67.91,month-to-month,check,False,2021-01-22,Customer called about billing issue number 387 and asked for a callback,CZ,2025-01-22,yes
+1388,38,53.95,two year,bank,True,2021-01-23,Customer called about billing issue number 388 and asked for a callback,CZ,,no
+1389,70,52.63,month-to-month,card,False,2021-01-24,Customer called about billing issue number 389 and asked for a callback,CZ,,no
+1390,3,78.51,month-to-month,check,True,2021-01-25,Customer called about billing issue number 390 and asked for a callback,CZ,2025-01-25,yes
+1391,41,49.39,one year,,True,2021-01-26,Customer called about billing issue number 391 and asked for a callback,CZ,,no
+1392,32,,two year,bank,False,2021-01-27,Customer called about billing issue number 392 and asked for a callback,CZ,2025-01-27,yes
+1393,1,39.52,month-to-month,,False,2021-01-28,Customer called about billing issue number 393 and asked for a callback,CZ,2025-01-28,yes
+1394,39,58.9,month-to-month,bank,True,2021-01-29,Customer called about billing issue number 394 and asked for a callback,CZ,,no
+1395,55,70.73,month-to-month,,True,2021-01-30,Customer called about billing issue number 395 and asked for a callback,CZ,2025-01-30,yes
+1396,53,44.96,month-to-month,check,True,2021-01-31,Customer called about billing issue number 396 and asked for a callback,CZ,,no
+1397,70,83.04,month-to-month,,True,2021-02-01,Customer called about billing issue number 397 and asked for a callback,CZ,,no
+1398,38,69.63,month-to-month,check,True,2021-02-02,Customer called about billing issue number 398 and asked for a callback,CZ,,no
+1399,42,49.28,one year,bank,False,2021-02-03,Customer called about billing issue number 399 and asked for a callback,CZ,,no
