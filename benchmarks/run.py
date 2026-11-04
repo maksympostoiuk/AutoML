@@ -82,7 +82,14 @@ def run_one(
     board = automl.leaderboard_
     valid, test = board[f"valid_{metric.name}"], board[f"test_{metric.name}"]
     chosen_best = board.loc[(valid if metric.greater_is_better else -valid).idxmax(), "model"]
-    chosen_default = board.loc[board["selected"], "model"].item()
+    # What the one-standard-error rule would pick from the same candidates (CV runs only).
+    objectives = [
+        c.valid_score if metric.greater_is_better else -c.valid_score for c in automl.candidates_
+    ]
+    one_se = AutoML(validation="cv", selection="one_se")._choose(
+        automl.candidates_, objectives, use_cv=validation == "cv"
+    )
+    chosen_one_se = automl.candidates_[one_se].name
     xgb_details = next(c for c in automl.candidates_ if c.name == "xgboost").details
 
     return [
@@ -103,8 +110,7 @@ def run_one(
             ),
             "test_score": row[test.name],
             "chosen_by_best": row["model"] == chosen_best,
-            "chosen_by_default_rule": row["model"] == chosen_default,
-            "default_rule": automl.selection_,
+            "chosen_by_one_se": row["model"] == chosen_one_se,
             "xgboost_trials": xgb_details["n_trials"],
             "run_seconds": round(seconds, 1),
         }
@@ -140,7 +146,7 @@ def main() -> None:
                 pd.DataFrame(rows).to_csv(
                     RESULTS, mode="a", header=not RESULTS.exists(), index=False
                 )
-                chosen = next(r for r in rows if r["chosen_by_default_rule"])
+                chosen = next(r for r in rows if r["chosen_by_best"])
                 print(
                     f"{dataset.name:34} seed {seed} {label:9} -> {chosen['model']:20} "
                     f"test {chosen['metric']} {chosen['test_score']:.4f} "

@@ -1,91 +1,301 @@
-dataset,rows,problem_type,metric,greater_is_better,seed,validation,model,valid_score,valid_std,test_score,chosen_by_best,chosen_by_default_rule,default_rule,xgboost_trials,run_seconds
-blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,xgboost,0.7135721247563352,,0.6803118908382066,True,True,best validation score,60,5.4
-blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,xgboost_default,0.7097953216374269,,0.6518031189083819,False,False,best validation score,60,5.4
-blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,logistic_regression,0.7085769980506822,,0.7305068226120858,False,False,best validation score,60,5.4
-blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,random_forest,0.6494883040935673,,0.6016081871345029,False,False,best validation score,60,5.4
-blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,best validation score,60,5.4
-blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,xgboost,0.7620669796577378,0.03538737731726564,0.6701998050682261,True,False,one-standard-error rule,60,42.1
-blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.7602358259645687,0.04669318267914962,0.7292884990253411,False,True,one-standard-error rule,60,42.1
-blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,random_forest,0.6882828258162912,0.05061622582128167,0.6016081871345029,False,False,one-standard-error rule,60,42.1
-blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.6822739680003014,0.043220301228601994,0.6528996101364521,False,False,one-standard-error rule,60,42.1
-blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,60,42.1
-blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,xgboost,0.7679093567251462,,0.7141812865497076,True,True,best validation score,60,4.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,logistic_regression,0.7484161793372319,,0.7285575048732943,False,False,best validation score,60,4.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,xgboost_default,0.7217348927875243,,0.6995614035087718,False,False,best validation score,60,4.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,random_forest,0.6703216374269005,,0.7101608187134505,False,False,best validation score,60,4.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,best validation score,60,4.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,xgboost,0.7624206538802812,0.011880356997532558,0.7179580896686159,True,True,one-standard-error rule,60,22.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.7517040586849433,0.026820116316139203,0.7392787524366472,False,False,one-standard-error rule,60,22.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.7103387964573442,0.04258062936334945,0.6918859649122806,False,False,one-standard-error rule,60,22.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,random_forest,0.6706999816418322,0.015218784522933702,0.7101608187134505,False,False,one-standard-error rule,60,22.0
-blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,60,22.0
-blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,xgboost,0.7827729044834308,,0.7595029239766081,True,True,best validation score,60,5.6
-blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,logistic_regression,0.765229044834308,,0.7778996101364523,False,False,best validation score,60,5.6
-blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,xgboost_default,0.6926169590643274,,0.7536549707602339,False,False,best validation score,60,5.6
-blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,random_forest,0.6903021442495125,,0.7130847953216375,False,False,best validation score,60,5.6
-blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,best validation score,60,5.6
-blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,xgboost,0.7456983635340885,0.02223116420320583,0.7619395711500974,True,False,one-standard-error rule,60,20.8
-blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.7433649197771601,0.03218790213507794,0.7895955165692008,False,True,one-standard-error rule,60,20.8
-blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.682939539845462,0.05542223517757221,0.7510964912280701,False,False,one-standard-error rule,60,20.8
-blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,random_forest,0.6805822510644207,0.040107634429487504,0.7130847953216375,False,False,one-standard-error rule,60,20.8
-blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,60,20.8
-diabetes,768,binary,roc_auc,True,0,holdout,xgboost,0.852962962962963,,0.8735185185185185,True,True,best validation score,60,4.6
-diabetes,768,binary,roc_auc,True,0,holdout,random_forest,0.8143518518518519,,0.8701851851851852,False,False,best validation score,60,4.6
-diabetes,768,binary,roc_auc,True,0,holdout,xgboost_default,0.8009259259259259,,0.8288888888888889,False,False,best validation score,60,4.6
-diabetes,768,binary,roc_auc,True,0,holdout,logistic_regression,0.7962962962962963,,0.8818518518518519,False,False,best validation score,60,4.6
-diabetes,768,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,best validation score,60,4.6
-diabetes,768,binary,roc_auc,True,0,5-fold CV,xgboost,0.83812569213732,0.0358045202163939,0.85,True,True,one-standard-error rule,60,25.3
-diabetes,768,binary,roc_auc,True,0,5-fold CV,random_forest,0.8184980620155038,0.025494983399385506,0.8701851851851852,False,False,one-standard-error rule,60,25.3
-diabetes,768,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.8164756367663344,0.035608903259703735,0.885,False,False,one-standard-error rule,60,25.3
-diabetes,768,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.8105703211517165,0.022192131942375463,0.8283333333333331,False,False,one-standard-error rule,60,25.3
-diabetes,768,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,60,25.3
-diabetes,768,binary,roc_auc,True,1,holdout,xgboost,0.832037037037037,,0.8205555555555556,True,True,best validation score,60,35.6
-diabetes,768,binary,roc_auc,True,1,holdout,logistic_regression,0.8135185185185185,,0.8138888888888889,False,False,best validation score,60,35.6
-diabetes,768,binary,roc_auc,True,1,holdout,xgboost_default,0.8089814814814814,,0.779074074074074,False,False,best validation score,60,35.6
-diabetes,768,binary,roc_auc,True,1,holdout,random_forest,0.8082407407407407,,0.8202777777777777,False,False,best validation score,60,35.6
-diabetes,768,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,best validation score,60,35.6
-diabetes,768,binary,roc_auc,True,1,5-fold CV,xgboost,0.8417704872646732,0.006937077974536621,0.825,True,True,one-standard-error rule,43,51.3
-diabetes,768,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.835514950166113,0.020779618800095694,0.8172222222222223,False,False,one-standard-error rule,43,51.3
-diabetes,768,binary,roc_auc,True,1,5-fold CV,random_forest,0.829749446290144,0.009013079471017559,0.8202777777777777,False,False,one-standard-error rule,43,51.3
-diabetes,768,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.8147722868217055,0.017037755179494615,0.78,False,False,one-standard-error rule,43,51.3
-diabetes,768,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,43,51.3
-diabetes,768,binary,roc_auc,True,2,holdout,xgboost,0.8494444444444444,,0.8161111111111111,True,True,best validation score,60,30.4
-diabetes,768,binary,roc_auc,True,2,holdout,logistic_regression,0.8440740740740741,,0.794074074074074,False,False,best validation score,60,30.4
-diabetes,768,binary,roc_auc,True,2,holdout,xgboost_default,0.8207407407407407,,0.7719444444444444,False,False,best validation score,60,30.4
-diabetes,768,binary,roc_auc,True,2,holdout,random_forest,0.8195370370370371,,0.7910185185185185,False,False,best validation score,60,30.4
-diabetes,768,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,best validation score,60,30.4
-diabetes,768,binary,roc_auc,True,2,5-fold CV,xgboost,0.843327104097453,0.024321237076907087,0.812037037037037,True,False,one-standard-error rule,60,29.6
-diabetes,768,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.8423228128460687,0.0395954241992007,0.794074074074074,False,True,one-standard-error rule,60,29.6
-diabetes,768,binary,roc_auc,True,2,5-fold CV,random_forest,0.8319082225913622,0.01280711236927405,0.7910185185185185,False,False,one-standard-error rule,60,29.6
-diabetes,768,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.8160991140642304,0.01626194154042223,0.7717592592592593,False,False,one-standard-error rule,60,29.6
-diabetes,768,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,one-standard-error rule,60,29.6
-vehicle,846,multiclass,log_loss,False,0,holdout,logistic_regression,0.3736656190610678,,0.393472050416447,True,True,best validation score,60,24.6
-vehicle,846,multiclass,log_loss,False,0,holdout,xgboost,0.46802064776420593,,0.47617924213409424,False,False,best validation score,60,24.6
-vehicle,846,multiclass,log_loss,False,0,holdout,random_forest,0.5526710628614899,,0.535121547496539,False,False,best validation score,60,24.6
-vehicle,846,multiclass,log_loss,False,0,holdout,xgboost_default,0.5861847996711731,,0.5753659605979919,False,False,best validation score,60,24.6
-vehicle,846,multiclass,log_loss,False,0,holdout,dummy,1.3857553349596992,,1.3855873950531885,False,False,best validation score,60,24.6
-vehicle,846,multiclass,log_loss,False,0,5-fold CV,logistic_regression,0.4622781699309244,0.08350941021758902,0.40440005559710007,True,True,one-standard-error rule,7,51.8
-vehicle,846,multiclass,log_loss,False,0,5-fold CV,xgboost,0.4832811176776886,0.032897019524449504,0.5016460418701172,False,False,one-standard-error rule,7,51.8
-vehicle,846,multiclass,log_loss,False,0,5-fold CV,random_forest,0.5177668428898712,0.028291638982120584,0.535121547496539,False,False,one-standard-error rule,7,51.8
-vehicle,846,multiclass,log_loss,False,0,5-fold CV,xgboost_default,0.5235361695289612,0.03366015989479592,0.5617069005966187,False,False,one-standard-error rule,7,51.8
-vehicle,846,multiclass,log_loss,False,0,5-fold CV,dummy,1.385697612219314,0.00024244992091235356,1.3855873950531885,False,False,one-standard-error rule,7,51.8
-vehicle,846,multiclass,log_loss,False,1,holdout,logistic_regression,0.41741236923679775,,0.3954967888775692,True,True,best validation score,13,46.7
-vehicle,846,multiclass,log_loss,False,1,holdout,xgboost,0.4791651964187622,,0.5196181535720825,False,False,best validation score,13,46.7
-vehicle,846,multiclass,log_loss,False,1,holdout,random_forest,0.5176546092956377,,0.5017211084916454,False,False,best validation score,13,46.7
-vehicle,846,multiclass,log_loss,False,1,holdout,xgboost_default,0.545588493347168,,0.4816854000091553,False,False,best validation score,13,46.7
-vehicle,846,multiclass,log_loss,False,1,holdout,dummy,1.3858929520561527,,1.3855873950531885,False,False,best validation score,13,46.7
-vehicle,846,multiclass,log_loss,False,1,5-fold CV,logistic_regression,0.4380850071797634,0.03729870141937436,0.3954967888775692,True,True,one-standard-error rule,2,51.2
-vehicle,846,multiclass,log_loss,False,1,5-fold CV,xgboost,0.4827348172664642,0.03301967719365013,0.493776798248291,False,False,one-standard-error rule,2,51.2
-vehicle,846,multiclass,log_loss,False,1,5-fold CV,xgboost_default,0.5156863987445831,0.029939953396612658,0.48435723781585693,False,False,one-standard-error rule,2,51.2
-vehicle,846,multiclass,log_loss,False,1,5-fold CV,random_forest,0.5229064528459018,0.02206420524234835,0.5017211084916454,False,False,one-standard-error rule,2,51.2
-vehicle,846,multiclass,log_loss,False,1,5-fold CV,dummy,1.385697612219314,0.00024244992091224403,1.3855873950531885,False,False,one-standard-error rule,2,51.2
-vehicle,846,multiclass,log_loss,False,2,holdout,logistic_regression,0.386389724033877,,0.3570660857079904,True,True,best validation score,54,46.2
-vehicle,846,multiclass,log_loss,False,2,holdout,xgboost,0.41569653153419495,,0.39437076449394226,False,False,best validation score,54,46.2
-vehicle,846,multiclass,log_loss,False,2,holdout,xgboost_default,0.478217750787735,,0.42499974370002747,False,False,best validation score,54,46.2
-vehicle,846,multiclass,log_loss,False,2,holdout,random_forest,0.524574425496075,,0.4760328614125977,False,False,best validation score,54,46.2
-vehicle,846,multiclass,log_loss,False,2,holdout,dummy,1.3857553349596992,,1.3855873950531885,False,False,best validation score,54,46.2
-vehicle,846,multiclass,log_loss,False,2,5-fold CV,logistic_regression,0.4283281817369895,0.029767804947080312,0.37265627060260625,True,True,one-standard-error rule,14,49.7
-vehicle,846,multiclass,log_loss,False,2,5-fold CV,xgboost,0.48361836075782777,0.032665730287087545,0.39621689915657043,False,False,one-standard-error rule,14,49.7
-vehicle,846,multiclass,log_loss,False,2,5-fold CV,random_forest,0.5412779204590799,0.024277201482212407,0.4760328614125977,False,False,one-standard-error rule,14,49.7
-vehicle,846,multiclass,log_loss,False,2,5-fold CV,xgboost_default,0.556943929195404,0.028294093861916565,0.4274747967720032,False,False,one-standard-error rule,14,49.7
-vehicle,846,multiclass,log_loss,False,2,5-fold CV,dummy,1.385697612219314,0.00024244992091235356,1.3855873950531885,False,False,one-standard-error rule,14,49.7
+dataset,rows,problem_type,metric,greater_is_better,seed,validation,model,valid_score,valid_std,test_score,chosen_by_best,chosen_by_one_se,xgboost_trials,run_seconds
+blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,xgboost,0.7135721247563352,,0.6803118908382066,True,True,60,5.4
+blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,xgboost_default,0.7097953216374269,,0.6518031189083819,False,False,60,5.4
+blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,logistic_regression,0.7085769980506822,,0.7305068226120858,False,False,60,5.4
+blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,random_forest,0.6494883040935673,,0.6016081871345029,False,False,60,5.4
+blood-transfusion-service-center,748,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,5.4
+blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,xgboost,0.7620669796577378,0.03538737731726564,0.6701998050682261,True,False,60,42.1
+blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.7602358259645687,0.04669318267914962,0.7292884990253411,False,True,60,42.1
+blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,random_forest,0.6882828258162912,0.05061622582128167,0.6016081871345029,False,False,60,42.1
+blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.6822739680003014,0.043220301228601994,0.6528996101364521,False,False,60,42.1
+blood-transfusion-service-center,748,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,42.1
+blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,xgboost,0.7679093567251462,,0.7141812865497076,True,True,60,4.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,logistic_regression,0.7484161793372319,,0.7285575048732943,False,False,60,4.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,xgboost_default,0.7217348927875243,,0.6995614035087718,False,False,60,4.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,random_forest,0.6703216374269005,,0.7101608187134505,False,False,60,4.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,60,4.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,xgboost,0.7624206538802812,0.011880356997532558,0.7179580896686159,True,True,60,22.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.7517040586849433,0.026820116316139203,0.7392787524366472,False,False,60,22.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.7103387964573442,0.04258062936334945,0.6918859649122806,False,False,60,22.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,random_forest,0.6706999816418322,0.015218784522933702,0.7101608187134505,False,False,60,22.0
+blood-transfusion-service-center,748,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,22.0
+blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,xgboost,0.7827729044834308,,0.7595029239766081,True,True,60,5.6
+blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,logistic_regression,0.765229044834308,,0.7778996101364523,False,False,60,5.6
+blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,xgboost_default,0.6926169590643274,,0.7536549707602339,False,False,60,5.6
+blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,random_forest,0.6903021442495125,,0.7130847953216375,False,False,60,5.6
+blood-transfusion-service-center,748,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,60,5.6
+blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,xgboost,0.7456983635340885,0.02223116420320583,0.7619395711500974,True,False,60,20.8
+blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.7433649197771601,0.03218790213507794,0.7895955165692008,False,True,60,20.8
+blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.682939539845462,0.05542223517757221,0.7510964912280701,False,False,60,20.8
+blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,random_forest,0.6805822510644207,0.040107634429487504,0.7130847953216375,False,False,60,20.8
+blood-transfusion-service-center,748,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,20.8
+diabetes,768,binary,roc_auc,True,0,holdout,xgboost,0.852962962962963,,0.8735185185185185,True,True,60,4.6
+diabetes,768,binary,roc_auc,True,0,holdout,random_forest,0.8143518518518519,,0.8701851851851852,False,False,60,4.6
+diabetes,768,binary,roc_auc,True,0,holdout,xgboost_default,0.8009259259259259,,0.8288888888888889,False,False,60,4.6
+diabetes,768,binary,roc_auc,True,0,holdout,logistic_regression,0.7962962962962963,,0.8818518518518519,False,False,60,4.6
+diabetes,768,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,4.6
+diabetes,768,binary,roc_auc,True,0,5-fold CV,xgboost,0.83812569213732,0.0358045202163939,0.85,True,True,60,25.3
+diabetes,768,binary,roc_auc,True,0,5-fold CV,random_forest,0.8184980620155038,0.025494983399385506,0.8701851851851852,False,False,60,25.3
+diabetes,768,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.8164756367663344,0.035608903259703735,0.885,False,False,60,25.3
+diabetes,768,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.8105703211517165,0.022192131942375463,0.8283333333333331,False,False,60,25.3
+diabetes,768,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,25.3
+diabetes,768,binary,roc_auc,True,1,holdout,xgboost,0.832037037037037,,0.8205555555555556,True,True,60,35.6
+diabetes,768,binary,roc_auc,True,1,holdout,logistic_regression,0.8135185185185185,,0.8138888888888889,False,False,60,35.6
+diabetes,768,binary,roc_auc,True,1,holdout,xgboost_default,0.8089814814814814,,0.779074074074074,False,False,60,35.6
+diabetes,768,binary,roc_auc,True,1,holdout,random_forest,0.8082407407407407,,0.8202777777777777,False,False,60,35.6
+diabetes,768,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,60,35.6
+diabetes,768,binary,roc_auc,True,1,5-fold CV,xgboost,0.8417704872646732,0.006937077974536621,0.825,True,True,43,51.3
+diabetes,768,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.835514950166113,0.020779618800095694,0.8172222222222223,False,False,43,51.3
+diabetes,768,binary,roc_auc,True,1,5-fold CV,random_forest,0.829749446290144,0.009013079471017559,0.8202777777777777,False,False,43,51.3
+diabetes,768,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.8147722868217055,0.017037755179494615,0.78,False,False,43,51.3
+diabetes,768,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,43,51.3
+diabetes,768,binary,roc_auc,True,2,holdout,xgboost,0.8494444444444444,,0.8161111111111111,True,True,60,30.4
+diabetes,768,binary,roc_auc,True,2,holdout,logistic_regression,0.8440740740740741,,0.794074074074074,False,False,60,30.4
+diabetes,768,binary,roc_auc,True,2,holdout,xgboost_default,0.8207407407407407,,0.7719444444444444,False,False,60,30.4
+diabetes,768,binary,roc_auc,True,2,holdout,random_forest,0.8195370370370371,,0.7910185185185185,False,False,60,30.4
+diabetes,768,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,60,30.4
+diabetes,768,binary,roc_auc,True,2,5-fold CV,xgboost,0.843327104097453,0.024321237076907087,0.812037037037037,True,False,60,29.6
+diabetes,768,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.8423228128460687,0.0395954241992007,0.794074074074074,False,True,60,29.6
+diabetes,768,binary,roc_auc,True,2,5-fold CV,random_forest,0.8319082225913622,0.01280711236927405,0.7910185185185185,False,False,60,29.6
+diabetes,768,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.8160991140642304,0.01626194154042223,0.7717592592592593,False,False,60,29.6
+diabetes,768,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,29.6
+vehicle,846,multiclass,log_loss,False,0,holdout,logistic_regression,0.3736656190610678,,0.393472050416447,True,True,60,24.6
+vehicle,846,multiclass,log_loss,False,0,holdout,xgboost,0.46802064776420593,,0.47617924213409424,False,False,60,24.6
+vehicle,846,multiclass,log_loss,False,0,holdout,random_forest,0.5526710628614899,,0.535121547496539,False,False,60,24.6
+vehicle,846,multiclass,log_loss,False,0,holdout,xgboost_default,0.5861847996711731,,0.5753659605979919,False,False,60,24.6
+vehicle,846,multiclass,log_loss,False,0,holdout,dummy,1.3857553349596992,,1.3855873950531885,False,False,60,24.6
+vehicle,846,multiclass,log_loss,False,0,5-fold CV,logistic_regression,0.4622781699309244,0.08350941021758902,0.40440005559710007,True,True,7,51.8
+vehicle,846,multiclass,log_loss,False,0,5-fold CV,xgboost,0.4832811176776886,0.032897019524449504,0.5016460418701172,False,False,7,51.8
+vehicle,846,multiclass,log_loss,False,0,5-fold CV,random_forest,0.5177668428898712,0.028291638982120584,0.535121547496539,False,False,7,51.8
+vehicle,846,multiclass,log_loss,False,0,5-fold CV,xgboost_default,0.5235361695289612,0.03366015989479592,0.5617069005966187,False,False,7,51.8
+vehicle,846,multiclass,log_loss,False,0,5-fold CV,dummy,1.385697612219314,0.00024244992091235356,1.3855873950531885,False,False,7,51.8
+vehicle,846,multiclass,log_loss,False,1,holdout,logistic_regression,0.41741236923679775,,0.3954967888775692,True,True,13,46.7
+vehicle,846,multiclass,log_loss,False,1,holdout,xgboost,0.4791651964187622,,0.5196181535720825,False,False,13,46.7
+vehicle,846,multiclass,log_loss,False,1,holdout,random_forest,0.5176546092956377,,0.5017211084916454,False,False,13,46.7
+vehicle,846,multiclass,log_loss,False,1,holdout,xgboost_default,0.545588493347168,,0.4816854000091553,False,False,13,46.7
+vehicle,846,multiclass,log_loss,False,1,holdout,dummy,1.3858929520561527,,1.3855873950531885,False,False,13,46.7
+vehicle,846,multiclass,log_loss,False,1,5-fold CV,logistic_regression,0.4380850071797634,0.03729870141937436,0.3954967888775692,True,True,2,51.2
+vehicle,846,multiclass,log_loss,False,1,5-fold CV,xgboost,0.4827348172664642,0.03301967719365013,0.493776798248291,False,False,2,51.2
+vehicle,846,multiclass,log_loss,False,1,5-fold CV,xgboost_default,0.5156863987445831,0.029939953396612658,0.48435723781585693,False,False,2,51.2
+vehicle,846,multiclass,log_loss,False,1,5-fold CV,random_forest,0.5229064528459018,0.02206420524234835,0.5017211084916454,False,False,2,51.2
+vehicle,846,multiclass,log_loss,False,1,5-fold CV,dummy,1.385697612219314,0.00024244992091224403,1.3855873950531885,False,False,2,51.2
+vehicle,846,multiclass,log_loss,False,2,holdout,logistic_regression,0.386389724033877,,0.3570660857079904,True,True,54,46.2
+vehicle,846,multiclass,log_loss,False,2,holdout,xgboost,0.41569653153419495,,0.39437076449394226,False,False,54,46.2
+vehicle,846,multiclass,log_loss,False,2,holdout,xgboost_default,0.478217750787735,,0.42499974370002747,False,False,54,46.2
+vehicle,846,multiclass,log_loss,False,2,holdout,random_forest,0.524574425496075,,0.4760328614125977,False,False,54,46.2
+vehicle,846,multiclass,log_loss,False,2,holdout,dummy,1.3857553349596992,,1.3855873950531885,False,False,54,46.2
+vehicle,846,multiclass,log_loss,False,2,5-fold CV,logistic_regression,0.4283281817369895,0.029767804947080312,0.37265627060260625,True,True,14,49.7
+vehicle,846,multiclass,log_loss,False,2,5-fold CV,xgboost,0.48361836075782777,0.032665730287087545,0.39621689915657043,False,False,14,49.7
+vehicle,846,multiclass,log_loss,False,2,5-fold CV,random_forest,0.5412779204590799,0.024277201482212407,0.4760328614125977,False,False,14,49.7
+vehicle,846,multiclass,log_loss,False,2,5-fold CV,xgboost_default,0.556943929195404,0.028294093861916565,0.4274747967720032,False,False,14,49.7
+vehicle,846,multiclass,log_loss,False,2,5-fold CV,dummy,1.385697612219314,0.00024244992091235356,1.3855873950531885,False,False,14,49.7
+credit-g,1000,binary,roc_auc,True,0,holdout,xgboost,0.8173809523809524,,0.825952380952381,True,True,60,8.3
+credit-g,1000,binary,roc_auc,True,0,holdout,random_forest,0.7827976190476191,,0.8280357142857144,False,False,60,8.3
+credit-g,1000,binary,roc_auc,True,0,holdout,xgboost_default,0.7763690476190477,,0.8207142857142857,False,False,60,8.3
+credit-g,1000,binary,roc_auc,True,0,holdout,logistic_regression,0.7701190476190476,,0.851309523809524,False,False,60,8.3
+credit-g,1000,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,8.3
+credit-g,1000,binary,roc_auc,True,0,5-fold CV,xgboost,0.7781994047619047,0.03748324042060843,0.8521428571428572,True,False,33,47.1
+credit-g,1000,binary,roc_auc,True,0,5-fold CV,random_forest,0.7678571428571428,0.04179629965881806,0.8280357142857144,False,False,33,47.1
+credit-g,1000,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.765327380952381,0.042156814919799765,0.851309523809524,False,True,33,47.1
+credit-g,1000,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.7366257440476189,0.0797097019697024,0.8207142857142857,False,False,33,47.1
+credit-g,1000,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,33,47.1
+credit-g,1000,binary,roc_auc,True,1,holdout,xgboost,0.824404761904762,,0.8107142857142857,True,True,60,10.2
+credit-g,1000,binary,roc_auc,True,1,holdout,random_forest,0.8223214285714284,,0.8100595238095238,False,False,60,10.2
+credit-g,1000,binary,roc_auc,True,1,holdout,logistic_regression,0.7991666666666667,,0.8067857142857143,False,False,60,10.2
+credit-g,1000,binary,roc_auc,True,1,holdout,xgboost_default,0.7858333333333333,,0.7912499999999999,False,False,60,10.2
+credit-g,1000,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,60,10.2
+credit-g,1000,binary,roc_auc,True,1,5-fold CV,xgboost,0.7928571428571429,0.03737730453320685,0.8058333333333334,True,False,17,47.4
+credit-g,1000,binary,roc_auc,True,1,5-fold CV,random_forest,0.7844494047619047,0.03745374530060972,0.8100595238095238,False,False,17,47.4
+credit-g,1000,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.7817708333333334,0.03077795043867903,0.8067857142857143,False,True,17,47.4
+credit-g,1000,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.7466517857142858,0.037915048883406,0.7951785714285715,False,False,17,47.4
+credit-g,1000,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,17,47.4
+credit-g,1000,binary,roc_auc,True,2,holdout,xgboost,0.8229761904761905,,0.7121428571428571,True,True,60,26.1
+credit-g,1000,binary,roc_auc,True,2,holdout,logistic_regression,0.8098809523809524,,0.7055952380952382,False,False,60,26.1
+credit-g,1000,binary,roc_auc,True,2,holdout,xgboost_default,0.804702380952381,,0.7147619047619048,False,False,60,26.1
+credit-g,1000,binary,roc_auc,True,2,holdout,random_forest,0.7870238095238096,,0.7273214285714286,False,False,60,26.1
+credit-g,1000,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,60,26.1
+credit-g,1000,binary,roc_auc,True,2,5-fold CV,xgboost,0.8077008928571431,0.022435657619424575,0.7247619047619047,True,False,20,48.0
+credit-g,1000,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.803422619047619,0.02927437368136063,0.7055952380952382,False,True,20,48.0
+credit-g,1000,binary,roc_auc,True,2,5-fold CV,random_forest,0.7999813988095239,0.017870855969734256,0.7273214285714286,False,False,20,48.0
+credit-g,1000,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.7797991071428572,0.03372866216735713,0.7197619047619048,False,False,20,48.0
+credit-g,1000,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,20,48.0
+house_prices,1460,regression,rmse,False,0,holdout,xgboost,24388.392486935492,,29372.20978394257,True,True,14,56.9
+house_prices,1460,regression,rmse,False,0,holdout,ridge,25724.511039354664,,50185.44258145107,False,False,14,56.9
+house_prices,1460,regression,rmse,False,0,holdout,xgboost_default,28325.415638411887,,34562.21793696697,False,False,14,56.9
+house_prices,1460,regression,rmse,False,0,holdout,random_forest,29865.044802121887,,33995.871607173736,False,False,14,56.9
+house_prices,1460,regression,rmse,False,0,holdout,dummy,79815.00231768633,,83103.3406605733,False,False,14,56.9
+house_prices,1460,regression,rmse,False,0,5-fold CV,xgboost,27048.59438072497,3601.06001913352,30757.82671372877,True,False,3,57.6
+house_prices,1460,regression,rmse,False,0,5-fold CV,ridge,28200.33202882176,5959.698239367986,45015.706852300405,False,True,3,57.6
+house_prices,1460,regression,rmse,False,0,5-fold CV,random_forest,29633.125760445597,4324.629921944235,33995.871607173736,False,False,3,57.6
+house_prices,1460,regression,rmse,False,0,5-fold CV,xgboost_default,29749.982659240446,4535.235237923967,34527.03271283147,False,False,3,57.6
+house_prices,1460,regression,rmse,False,0,5-fold CV,dummy,78309.06441568524,5893.672370473954,83103.3406605733,False,False,3,57.6
+house_prices,1460,regression,rmse,False,1,holdout,xgboost,20134.68962599942,,27919.646962011942,True,True,24,48.2
+house_prices,1460,regression,rmse,False,1,holdout,ridge,22829.34383524521,,31906.17518457681,False,False,24,48.2
+house_prices,1460,regression,rmse,False,1,holdout,xgboost_default,23691.971222442244,,38140.156289882325,False,False,24,48.2
+house_prices,1460,regression,rmse,False,1,holdout,random_forest,25075.792035590566,,28561.50019273046,False,False,24,48.2
+house_prices,1460,regression,rmse,False,1,holdout,dummy,73419.53562556075,,84695.70224683694,False,False,24,48.2
+house_prices,1460,regression,rmse,False,1,5-fold CV,xgboost,27797.211363299215,7612.848921331689,29008.16386656458,True,False,7,86.6
+house_prices,1460,regression,rmse,False,1,5-fold CV,xgboost_default,30193.659358610767,6216.295780495012,38161.91340806411,False,False,7,86.6
+house_prices,1460,regression,rmse,False,1,5-fold CV,random_forest,30619.71336511115,6700.0995740010385,28561.50019273046,False,True,7,86.6
+house_prices,1460,regression,rmse,False,1,5-fold CV,ridge,32720.209764133917,13780.392209083258,30220.78423744083,False,False,7,86.6
+house_prices,1460,regression,rmse,False,1,5-fold CV,dummy,77757.5014962609,7865.1036824379535,84695.70224683694,False,False,7,86.6
+house_prices,1460,regression,rmse,False,2,holdout,xgboost,32707.112372950087,,26645.258064144975,True,True,44,48.2
+house_prices,1460,regression,rmse,False,2,holdout,xgboost_default,41765.610667113586,,28827.965898271956,False,False,44,48.2
+house_prices,1460,regression,rmse,False,2,holdout,random_forest,42698.87828455218,,27029.860709367822,False,False,44,48.2
+house_prices,1460,regression,rmse,False,2,holdout,ridge,57287.186782560944,,26188.251152403394,False,False,44,48.2
+house_prices,1460,regression,rmse,False,2,holdout,dummy,80298.20045564695,,81513.01190443708,False,False,44,48.2
+house_prices,1460,regression,rmse,False,2,5-fold CV,xgboost,28169.093463908735,4679.329063670148,25497.067526194154,True,True,7,58.2
+house_prices,1460,regression,rmse,False,2,5-fold CV,random_forest,32032.652352751582,8940.006919421152,27029.860709367822,False,False,7,58.2
+house_prices,1460,regression,rmse,False,2,5-fold CV,xgboost_default,33199.966812060564,6768.97735823867,27197.647268683544,False,False,7,58.2
+house_prices,1460,regression,rmse,False,2,5-fold CV,ridge,35299.48112383463,14908.27425981227,34729.25808868752,False,False,7,58.2
+house_prices,1460,regression,rmse,False,2,5-fold CV,dummy,78712.90507822337,5627.5621468959835,81513.01190443708,False,False,7,58.2
+car,1728,multiclass,log_loss,False,0,holdout,xgboost_default,0.06566710025072098,,0.01769828610122204,True,True,6,70.2
+car,1728,multiclass,log_loss,False,0,holdout,xgboost,0.0948355570435524,,0.07623913139104843,False,False,6,70.2
+car,1728,multiclass,log_loss,False,0,holdout,logistic_regression,0.15371220349867598,,0.13289047194423798,False,False,6,70.2
+car,1728,multiclass,log_loss,False,0,holdout,random_forest,0.18989753301285817,,0.18828469508176277,False,False,6,70.2
+car,1728,multiclass,log_loss,False,0,holdout,dummy,0.8375284323332075,,0.837523204847965,False,False,6,70.2
+car,1728,multiclass,log_loss,False,0,5-fold CV,xgboost_default,0.041160425543785094,0.01231035590979647,0.018469465896487236,True,True,2,70.1
+car,1728,multiclass,log_loss,False,0,5-fold CV,xgboost,0.09817851334810257,0.01733054430313655,0.08441909402608871,False,False,2,70.1
+car,1728,multiclass,log_loss,False,0,5-fold CV,logistic_regression,0.16810584357529185,0.008693839981309648,0.13289047194423798,False,False,2,70.1
+car,1728,multiclass,log_loss,False,0,5-fold CV,random_forest,0.19348407022850042,0.013226250510882562,0.18828469508176277,False,False,2,70.1
+car,1728,multiclass,log_loss,False,0,5-fold CV,dummy,0.835336449999429,0.0033473862785964106,0.837523204847965,False,False,2,70.1
+car,1728,multiclass,log_loss,False,1,holdout,xgboost,0.043402668088674545,,0.010657715611159801,True,True,9,49.1
+car,1728,multiclass,log_loss,False,1,holdout,xgboost_default,0.05256929621100426,,0.018010007217526436,False,False,9,49.1
+car,1728,multiclass,log_loss,False,1,holdout,logistic_regression,0.1571444998397222,,0.13465704161149272,False,False,9,49.1
+car,1728,multiclass,log_loss,False,1,holdout,random_forest,0.20707470412271178,,0.15334913464157238,False,False,9,49.1
+car,1728,multiclass,log_loss,False,1,holdout,dummy,0.8375284323332074,,0.837523204847965,False,False,9,49.1
+car,1728,multiclass,log_loss,False,1,5-fold CV,xgboost,0.038895973563194276,0.009727540903502859,0.012324006296694279,True,False,7,53.3
+car,1728,multiclass,log_loss,False,1,5-fold CV,xgboost_default,0.040888788551092146,0.012688057906251144,0.013428475707769394,False,True,7,53.3
+car,1728,multiclass,log_loss,False,1,5-fold CV,logistic_regression,0.16406769776176708,0.021590853089631608,0.13465704161149272,False,False,7,53.3
+car,1728,multiclass,log_loss,False,1,5-fold CV,random_forest,0.19880599192474108,0.006001886850562798,0.15334913464157238,False,False,7,53.3
+car,1728,multiclass,log_loss,False,1,5-fold CV,dummy,0.8353364499994292,0.0033473862785963174,0.837523204847965,False,False,7,53.3
+car,1728,multiclass,log_loss,False,2,holdout,xgboost,0.055958058685064316,,0.043733034282922745,True,True,26,49.5
+car,1728,multiclass,log_loss,False,2,holdout,xgboost_default,0.08649209886789322,,0.056916043162345886,False,False,26,49.5
+car,1728,multiclass,log_loss,False,2,holdout,logistic_regression,0.14671785227858555,,0.2075154303587573,False,False,26,49.5
+car,1728,multiclass,log_loss,False,2,holdout,random_forest,0.2175824026465267,,0.18092853817667146,False,False,26,49.5
+car,1728,multiclass,log_loss,False,2,holdout,dummy,0.8375284323332075,,0.8375232048479648,False,False,26,49.5
+car,1728,multiclass,log_loss,False,2,5-fold CV,xgboost_default,0.03706977218389511,0.03572564157800832,0.051056381314992905,True,True,7,60.8
+car,1728,multiclass,log_loss,False,2,5-fold CV,xgboost,0.05174994580447674,0.03989612312851619,0.052703194320201874,False,False,7,60.8
+car,1728,multiclass,log_loss,False,2,5-fold CV,logistic_regression,0.14763984766290564,0.03963992722935284,0.2075154303587573,False,False,7,60.8
+car,1728,multiclass,log_loss,False,2,5-fold CV,random_forest,0.1929331483966946,0.02301928164723234,0.18092853817667146,False,False,7,60.8
+car,1728,multiclass,log_loss,False,2,5-fold CV,dummy,0.8353304352793469,0.006375414782321571,0.8375232048479648,False,False,7,60.8
+kc1,2109,binary,roc_auc,True,0,holdout,xgboost,0.845830639948287,,0.8292178409825469,True,True,60,7.5
+kc1,2109,binary,roc_auc,True,0,holdout,logistic_regression,0.8438914027149321,,0.8036199095022625,False,False,60,7.5
+kc1,2109,binary,roc_auc,True,0,holdout,random_forest,0.8243697478991596,,0.8414996767937944,False,False,60,7.5
+kc1,2109,binary,roc_auc,True,0,holdout,xgboost_default,0.8170006464124111,,0.8124973066149537,False,False,60,7.5
+kc1,2109,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,7.5
+kc1,2109,binary,roc_auc,True,0,5-fold CV,xgboost,0.8178153534902446,0.03262861421171962,0.8302521008403362,True,False,60,47.9
+kc1,2109,binary,roc_auc,True,0,5-fold CV,random_forest,0.8108615467235893,0.033083469237883315,0.8414996767937944,False,True,60,47.9
+kc1,2109,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.7977411178946585,0.030069988641068846,0.8039646627881922,False,False,60,47.9
+kc1,2109,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.7935523364421081,0.03960267355478617,0.8105149752208576,False,False,60,47.9
+kc1,2109,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,60,47.9
+kc1,2109,binary,roc_auc,True,1,holdout,xgboost,0.8492781728075847,,0.8158371040723982,True,True,60,9.0
+kc1,2109,binary,roc_auc,True,1,holdout,logistic_regression,0.8469941822883,,0.8017884076707606,False,False,60,9.0
+kc1,2109,binary,roc_auc,True,1,holdout,random_forest,0.8465416936005171,,0.8409825468648998,False,False,60,9.0
+kc1,2109,binary,roc_auc,True,1,holdout,xgboost_default,0.8346477052359406,,0.8124326653738418,False,False,60,9.0
+kc1,2109,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,60,9.0
+kc1,2109,binary,roc_auc,True,1,5-fold CV,random_forest,0.8284411486458694,0.016141864389593114,0.8409825468648998,True,True,45,53.8
+kc1,2109,binary,roc_auc,True,1,5-fold CV,xgboost,0.8242312611255015,0.017299251317521466,0.8391941391941393,False,False,45,53.8
+kc1,2109,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.8047330106681951,0.008927842060699447,0.7966171083818143,False,False,45,53.8
+kc1,2109,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.8024010681727816,0.00984036743796066,0.8117431588019823,False,False,45,53.8
+kc1,2109,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,45,53.8
+kc1,2109,binary,roc_auc,True,2,holdout,xgboost,0.8250592544710192,,0.8166989872872226,True,True,60,9.1
+kc1,2109,binary,roc_auc,True,2,holdout,logistic_regression,0.807455289808231,,0.8098685628097393,False,False,60,9.1
+kc1,2109,binary,roc_auc,True,2,holdout,xgboost_default,0.8062917474682181,,0.8339366515837104,False,False,60,9.1
+kc1,2109,binary,roc_auc,True,2,holdout,random_forest,0.8043740573152338,,0.8377935789700496,False,False,60,9.1
+kc1,2109,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,60,9.1
+kc1,2109,binary,roc_auc,True,2,5-fold CV,xgboost,0.8204821071399253,0.0182285953758378,0.8359836242189184,True,False,44,54.6
+kc1,2109,binary,roc_auc,True,2,5-fold CV,random_forest,0.8202565624989427,0.025859808036067872,0.8377935789700496,False,True,44,54.6
+kc1,2109,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.8026179910787656,0.01578300134875925,0.8236586942469295,False,False,44,54.6
+kc1,2109,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.8003785679729075,0.01521458173547136,0.7932773109243698,False,False,44,54.6
+kc1,2109,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,44,54.6
+abalone,4177,regression,rmse,False,0,holdout,xgboost,1.9600477836572001,,2.1440214036955365,True,True,60,11.0
+abalone,4177,regression,rmse,False,0,holdout,xgboost_default,2.0587524913079425,,2.2044384315108325,False,False,60,11.0
+abalone,4177,regression,rmse,False,0,holdout,random_forest,2.082763733935799,,2.14647729223532,False,False,60,11.0
+abalone,4177,regression,rmse,False,0,holdout,ridge,2.160414822881359,,2.236137576877539,False,False,60,11.0
+abalone,4177,regression,rmse,False,0,holdout,dummy,2.9767589161972143,,3.297810687864156,False,False,60,11.0
+abalone,4177,regression,rmse,False,0,5-fold CV,xgboost,2.1019959242874138,0.07461252092622007,2.141320181344275,True,True,36,46.0
+abalone,4177,regression,rmse,False,0,5-fold CV,xgboost_default,2.1699720174201818,0.08701366255381796,2.2032842450697587,False,False,36,46.0
+abalone,4177,regression,rmse,False,0,5-fold CV,random_forest,2.176914672211667,0.08049684229549707,2.14647729223532,False,False,36,46.0
+abalone,4177,regression,rmse,False,0,5-fold CV,ridge,2.2057600236738004,0.08045855502311118,2.237533188692094,False,False,36,46.0
+abalone,4177,regression,rmse,False,0,5-fold CV,dummy,3.2035637915018498,0.15389502982333397,3.297810687864156,False,False,36,46.0
+abalone,4177,regression,rmse,False,1,holdout,xgboost,1.9652606328054443,,2.130969994727826,True,True,60,20.2
+abalone,4177,regression,rmse,False,1,holdout,random_forest,2.041563226881971,,2.1411181382580624,False,False,60,20.2
+abalone,4177,regression,rmse,False,1,holdout,xgboost_default,2.0578927435749077,,2.165305429597243,False,False,60,20.2
+abalone,4177,regression,rmse,False,1,holdout,ridge,2.1066714744067756,,2.1893111031157217,False,False,60,20.2
+abalone,4177,regression,rmse,False,1,holdout,dummy,3.1693472123921946,,3.12912905809672,False,False,60,20.2
+abalone,4177,regression,rmse,False,1,5-fold CV,xgboost,2.1181073589952337,0.06304390036397967,2.1422012463201323,True,True,43,47.4
+abalone,4177,regression,rmse,False,1,5-fold CV,random_forest,2.177530581467674,0.05469740826617575,2.1411181382580624,False,False,43,47.4
+abalone,4177,regression,rmse,False,1,5-fold CV,xgboost_default,2.191716445363528,0.06369852793434987,2.1799411254435905,False,False,43,47.4
+abalone,4177,regression,rmse,False,1,5-fold CV,ridge,2.238860707990397,0.07878235320297276,2.183481358206625,False,False,43,47.4
+abalone,4177,regression,rmse,False,1,5-fold CV,dummy,3.2476349676962686,0.08190772019273793,3.12912905809672,False,False,43,47.4
+abalone,4177,regression,rmse,False,2,holdout,xgboost,1.9855086839334533,,2.279390231672539,True,True,60,10.3
+abalone,4177,regression,rmse,False,2,holdout,random_forest,2.048814957464653,,2.304889308884369,False,False,60,10.3
+abalone,4177,regression,rmse,False,2,holdout,xgboost_default,2.071142128941955,,2.2808753029987208,False,False,60,10.3
+abalone,4177,regression,rmse,False,2,holdout,ridge,2.0974077223235246,,2.4174425008804192,False,False,60,10.3
+abalone,4177,regression,rmse,False,2,holdout,dummy,3.074598680646074,,3.5041935721411224,False,False,60,10.3
+abalone,4177,regression,rmse,False,2,5-fold CV,xgboost,2.094068922926829,0.1327015070855805,2.269137338235446,True,False,29,46.8
+abalone,4177,regression,rmse,False,2,5-fold CV,ridge,2.1473032903378972,0.1092121953267751,2.4139506616911515,False,True,29,46.8
+abalone,4177,regression,rmse,False,2,5-fold CV,random_forest,2.1489266671920353,0.10890591038201503,2.304889308884369,False,False,29,46.8
+abalone,4177,regression,rmse,False,2,5-fold CV,xgboost_default,2.1667978455708616,0.11084400311740053,2.2884196304274846,False,False,29,46.8
+abalone,4177,regression,rmse,False,2,5-fold CV,dummy,3.1486806877947005,0.11830524088122082,3.5041935721411224,False,False,29,46.8
+phoneme,5404,binary,roc_auc,True,0,holdout,xgboost,0.9637925908798124,,0.9658942639602293,True,True,60,42.7
+phoneme,5404,binary,roc_auc,True,0,holdout,xgboost_default,0.9622442069797017,,0.9577064098964442,False,False,60,42.7
+phoneme,5404,binary,roc_auc,True,0,holdout,random_forest,0.9616537565857928,,0.9662245858589195,False,False,60,42.7
+phoneme,5404,binary,roc_auc,True,0,holdout,logistic_regression,0.8203998546583647,,0.8032974383536756,False,False,60,42.7
+phoneme,5404,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,42.7
+phoneme,5404,binary,roc_auc,True,0,5-fold CV,random_forest,0.9536110800021118,0.004332057322959221,0.9662245858589195,True,True,21,63.5
+phoneme,5404,binary,roc_auc,True,0,5-fold CV,xgboost,0.9522236784194591,0.0032731956141997852,0.9640114291376947,False,False,21,63.5
+phoneme,5404,binary,roc_auc,True,0,5-fold CV,xgboost_default,0.9405936216300855,0.004208887571500177,0.9543949328620741,False,False,21,63.5
+phoneme,5404,binary,roc_auc,True,0,5-fold CV,logistic_regression,0.8147107418036418,0.01254355215151548,0.8032974383536756,False,False,21,63.5
+phoneme,5404,binary,roc_auc,True,0,5-fold CV,dummy,0.5,0.0,0.5,False,False,21,63.5
+phoneme,5404,binary,roc_auc,True,1,holdout,xgboost,0.9570498951227973,,0.957850925727121,True,True,57,47.5
+phoneme,5404,binary,roc_auc,True,1,holdout,random_forest,0.9566122186070326,,0.9565482187391614,False,False,57,47.5
+phoneme,5404,binary,roc_auc,True,1,holdout,xgboost_default,0.9477967529357358,,0.9476233339389235,False,False,57,47.5
+phoneme,5404,binary,roc_auc,True,1,holdout,logistic_regression,0.8256024245627364,,0.8058739491634599,False,False,57,47.5
+phoneme,5404,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,57,47.5
+phoneme,5404,binary,roc_auc,True,1,5-fold CV,random_forest,0.9576518249251688,0.005841330555181406,0.9565482187391614,True,True,18,64.1
+phoneme,5404,binary,roc_auc,True,1,5-fold CV,xgboost,0.9555645662343013,0.0060289083736683536,0.9572315721670768,False,False,18,64.1
+phoneme,5404,binary,roc_auc,True,1,5-fold CV,xgboost_default,0.9511635628347908,0.006085506945072606,0.9483128809024395,False,False,18,64.1
+phoneme,5404,binary,roc_auc,True,1,5-fold CV,logistic_regression,0.8141452523420478,0.010141689810511788,0.8058739491634599,False,False,18,64.1
+phoneme,5404,binary,roc_auc,True,1,5-fold CV,dummy,0.5,0.0,0.5,False,False,18,64.1
+phoneme,5404,binary,roc_auc,True,2,holdout,xgboost,0.9547954481642361,,0.9648496209556213,True,True,60,41.4
+phoneme,5404,binary,roc_auc,True,2,holdout,random_forest,0.953674418220556,,0.967498389680744,False,False,60,41.4
+phoneme,5404,binary,roc_auc,True,2,holdout,xgboost_default,0.9461637240490859,,0.951884486432028,False,False,60,41.4
+phoneme,5404,binary,roc_auc,True,2,holdout,logistic_regression,0.8186037293342362,,0.8254455216608585,False,False,60,41.4
+phoneme,5404,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,60,41.4
+phoneme,5404,binary,roc_auc,True,2,5-fold CV,random_forest,0.9563562307257364,0.005564508422991573,0.967498389680744,True,True,16,63.8
+phoneme,5404,binary,roc_auc,True,2,5-fold CV,xgboost,0.9541051951922814,0.004315708079931278,0.962863560539746,False,False,16,63.8
+phoneme,5404,binary,roc_auc,True,2,5-fold CV,xgboost_default,0.9492928832472401,0.005873500310549181,0.9593373742712273,False,False,16,63.8
+phoneme,5404,binary,roc_auc,True,2,5-fold CV,logistic_regression,0.8095993598541031,0.010240929212517706,0.8254455216608585,False,False,16,63.8
+phoneme,5404,binary,roc_auc,True,2,5-fold CV,dummy,0.5,0.0,0.5,False,False,16,63.8
+bank-marketing,45211,binary,roc_auc,True,0,holdout,xgboost,0.9410627729940031,,0.9372124955463518,True,True,60,106.9
+bank-marketing,45211,binary,roc_auc,True,0,holdout,xgboost_default,0.9358826348348871,,0.9339015853212486,False,False,60,106.9
+bank-marketing,45211,binary,roc_auc,True,0,holdout,random_forest,0.9344880687651296,,0.9298278435582785,False,False,60,106.9
+bank-marketing,45211,binary,roc_auc,True,0,holdout,logistic_regression,0.9105633289262836,,0.9069553853929803,False,False,60,106.9
+bank-marketing,45211,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,106.9
+bank-marketing,45211,binary,roc_auc,True,1,holdout,xgboost,0.9400311729318751,,0.9360057196089548,True,True,57,126.6
+bank-marketing,45211,binary,roc_auc,True,1,holdout,xgboost_default,0.9355207342852057,,0.9332099529718411,False,False,57,126.6
+bank-marketing,45211,binary,roc_auc,True,1,holdout,random_forest,0.9279366862268962,,0.931635225783694,False,False,57,126.6
+bank-marketing,45211,binary,roc_auc,True,1,holdout,logistic_regression,0.9047638045467116,,0.9054457021849807,False,False,57,126.6
+bank-marketing,45211,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,57,126.6
+bank-marketing,45211,binary,roc_auc,True,2,holdout,xgboost,0.9422532446746043,,0.9339025322763737,True,True,54,126.7
+bank-marketing,45211,binary,roc_auc,True,2,holdout,random_forest,0.9382632822355486,,0.9277395707689159,False,False,54,126.7
+bank-marketing,45211,binary,roc_auc,True,2,holdout,xgboost_default,0.9379656643153982,,0.931527628007618,False,False,54,126.7
+bank-marketing,45211,binary,roc_auc,True,2,holdout,logistic_regression,0.9116618160707048,,0.9032159779738238,False,False,54,126.7
+bank-marketing,45211,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,54,126.7
+adult,48842,binary,roc_auc,True,0,holdout,xgboost,0.9298222296072035,,0.929806170000388,True,True,60,95.4
+adult,48842,binary,roc_auc,True,0,holdout,xgboost_default,0.928849179645272,,0.9273118219412148,False,False,60,95.4
+adult,48842,binary,roc_auc,True,0,holdout,logistic_regression,0.9039191680795625,,0.9059335622543483,False,False,60,95.4
+adult,48842,binary,roc_auc,True,0,holdout,random_forest,0.9025835093983482,,0.9037375390518922,False,False,60,95.4
+adult,48842,binary,roc_auc,True,0,holdout,dummy,0.5,,0.5,False,False,60,95.4
+adult,48842,binary,roc_auc,True,1,holdout,xgboost,0.9280240404168814,,0.9318764570173339,True,True,42,128.4
+adult,48842,binary,roc_auc,True,1,holdout,xgboost_default,0.9262289602882998,,0.9300543903254108,False,False,42,128.4
+adult,48842,binary,roc_auc,True,1,holdout,logistic_regression,0.9043125219649454,,0.9071675554249364,False,False,42,128.4
+adult,48842,binary,roc_auc,True,1,holdout,random_forest,0.902463637795689,,0.9060923944831947,False,False,42,128.4
+adult,48842,binary,roc_auc,True,1,holdout,dummy,0.5,,0.5,False,False,42,128.4
+adult,48842,binary,roc_auc,True,2,holdout,xgboost,0.9277365673563257,,0.9330429918178523,True,True,22,147.3
+adult,48842,binary,roc_auc,True,2,holdout,xgboost_default,0.9267478569352574,,0.9316632321607435,False,False,22,147.3
+adult,48842,binary,roc_auc,True,2,holdout,random_forest,0.9033544703471509,,0.9085904550550552,False,False,22,147.3
+adult,48842,binary,roc_auc,True,2,holdout,logistic_regression,0.9029277516232757,,0.9088870531616852,False,False,22,147.3
+adult,48842,binary,roc_auc,True,2,holdout,dummy,0.5,,0.5,False,False,22,147.3

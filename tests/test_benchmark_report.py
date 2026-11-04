@@ -43,9 +43,8 @@ def fake_results() -> pd.DataFrame:
                         # holdout and "best" fall for the overfitted xgboost validation score;
                         # the 1-SE rule picks the linear model.
                         "chosen_by_best": model == "xgboost",
-                        "chosen_by_default_rule": model
+                        "chosen_by_one_se": model
                         == ("xgboost" if validation == "holdout" else "logistic_regression"),
-                        "default_rule": "x",
                         "xgboost_trials": 10,
                         "run_seconds": 1.0,
                     }
@@ -60,7 +59,7 @@ def test_selection_table_measures_the_captured_gain(report) -> None:
     captured = picks.groupby("strategy")["captured"].mean()
     # oracle 0.80, dummy 0.5: xgboost (0.76) captures 26/30 of the gain, linear all of it.
     assert captured["holdout, best"] == pytest.approx(0.26 / 0.30)
-    assert captured["CV, 1-SE (default)"] == pytest.approx(1.0)
+    assert captured["CV, 1-SE"] == pytest.approx(1.0)
 
 
 def test_report_keeps_the_hand_written_part(

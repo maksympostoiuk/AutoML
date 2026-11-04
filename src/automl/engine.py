@@ -95,19 +95,20 @@ class AutoML:
         check_leakage: bool = True,
         validation: str = "auto",
         cv_folds: int = 5,
-        selection: str = "auto",
+        selection: str = "best",
         random_state: int = 0,
         n_jobs: int = -1,
     ) -> None:
         """
         ``validation``: "holdout", "cv" or "auto" (cv below ``CV_MAX_ROWS`` rows).
-        ``selection``: "best" (highest validation score), "one_se" (the simplest candidate
-        within one standard error of the best; needs cv) or "auto" (one_se with cv).
+        ``selection``: "best" (highest validation score) or "one_se" (the simplest candidate
+        within one standard error of the best; needs cv). The benchmark found no gain from
+        "one_se" on average (benchmarks/results.md), so "best" is the default.
         """
         if validation not in ("auto", "holdout", "cv"):
             raise ValueError('validation must be "auto", "holdout" or "cv"')
-        if selection not in ("auto", "best", "one_se"):
-            raise ValueError('selection must be "auto", "best" or "one_se"')
+        if selection not in ("best", "one_se"):
+            raise ValueError('selection must be "best" or "one_se"')
         if selection == "one_se" and validation == "holdout":
             raise ValueError("the one-standard-error rule needs cross-validation")
         self.selection = selection
@@ -265,7 +266,7 @@ class AutoML:
         best is statistically as good and safer, so the simplest such model wins.
         """
         best = int(np.argmax(objectives))
-        one_se = self.selection == "one_se" or (self.selection == "auto" and use_cv)
+        one_se = self.selection == "one_se" and use_cv
         self.selection_ = "one-standard-error rule" if one_se else "best validation score"
         if not one_se:
             return best

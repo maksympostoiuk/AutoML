@@ -73,8 +73,8 @@ def selection_table(df: pd.DataFrame) -> tuple[str, pd.DataFrame]:
         oracle = sign * (sign * group["test_score"]).max()  # best test score of any fit model
         picks = {
             "holdout, best": holdout.loc[holdout["chosen_by_best"]].iloc[0],
-            "CV, best": cv.loc[cv["chosen_by_best"]].iloc[0],
-            "CV, 1-SE (default)": cv.loc[cv["chosen_by_default_rule"]].iloc[0],
+            "CV, best (default)": cv.loc[cv["chosen_by_best"]].iloc[0],
+            "CV, 1-SE": cv.loc[cv["chosen_by_one_se"]].iloc[0],
         }
         for strategy, pick in picks.items():
             captured = (pick["test_score"] - dummy) / (oracle - dummy) if oracle != dummy else 1

@@ -119,12 +119,13 @@ def test_a_given_spec_is_used_and_checked(churn_df: pd.DataFrame) -> None:
         AutoML(spec=wrong, **FAST).fit(churn_df)
 
 
-def test_small_data_uses_cross_validation_and_the_one_se_rule(churn_df: pd.DataFrame) -> None:
+def test_small_data_uses_cross_validation(churn_df: pd.DataFrame) -> None:
     settings = {**FAST, "validation": "auto"}
     automl = AutoML(**settings).fit(churn_df, target="churned")  # 320 development rows
     assert automl.validation_ == "5-fold CV"
-    assert automl.selection_ == "one-standard-error rule"
+    assert automl.selection_ == "best validation score"
     assert automl.model_.metadata["validation"] == "5-fold CV"
+    assert automl.candidates_[-1].details["valid_std"] > 0  # spread over the folds
 
 
 def test_one_se_rule_prefers_the_simpler_model() -> None:
