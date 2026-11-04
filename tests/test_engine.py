@@ -155,3 +155,20 @@ def test_invalid_validation_settings() -> None:
         AutoML(validation="bootstrap")
     with pytest.raises(ValueError, match="cross-validation"):
         AutoML(validation="holdout", selection="one_se")
+
+
+def test_names_xgboost_rejects_are_handled() -> None:
+    """Found by the benchmark: OpenML credit-g has categories such as "<0" and "0<=X<200"."""
+    from automl.explain import explain
+
+    rng = np.random.default_rng(0)
+    n = 300
+    df = pd.DataFrame(
+        {
+            "checking_status": rng.choice(["<0", "0<=X<200", ">=200"], n),
+            "amount [EUR]": rng.normal(1000, 300, n),
+        }
+    )
+    df["risk"] = np.where(df["checking_status"] == "<0", "bad", "good")
+    automl = AutoML(**FAST).fit(df, target="risk")
+    assert set(explain(automl.model_, df).columns) == {"checking_status", "amount [EUR]"}

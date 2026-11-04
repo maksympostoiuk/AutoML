@@ -46,6 +46,8 @@ select = [
 [tool.ruff.lint.per-file-ignores]
 # Math notation: G and H are gradient/hessian sums, not constants, so "G < x" is not a Yoda condition.
 "src/automl/boosting/**" = ["SIM300"]
+# The report uses real typography (en dash for "no value", minus sign).
+"benchmarks/report.py" = ["RUF001"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

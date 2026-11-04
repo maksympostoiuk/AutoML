@@ -29,6 +29,14 @@ from automl.task import TaskSpec
 
 MAX_CATEGORIES = 20  # per column; rarer levels are grouped into "infrequent"
 MISSING_CATEGORY = "__missing__"
+# XGBoost rejects feature names containing "[", "]" or "<", and categories such as "<0" or
+# "0<=X<200" (OpenML credit-g) end up in one-hot feature names.
+_UNSAFE_CHARACTERS = str.maketrans({"[": "(", "]": ")", "<": "lt"})
+
+
+def safe_name(name: object) -> str:
+    """A feature name every model accepts."""
+    return str(name).translate(_UNSAFE_CHARACTERS)
 
 
 @dataclass(frozen=True)
@@ -63,7 +71,7 @@ def plan_features(profile: DatasetProfile, spec: TaskSpec) -> FeaturePlan:
 
 
 def make_preprocessor(plan: FeaturePlan, for_linear: bool = False) -> ColumnTransformer:
-    to_float = FunctionTransformer(_to_float, feature_names_out="one-to-one")
+    to_float = FunctionTransformer(_to_float, feature_names_out=_safe_names_out)
     if for_linear:
         numeric = make_pipeline(
             to_float, SimpleImputer(strategy="median", add_indicator=True), StandardScaler()
@@ -86,6 +94,7 @@ def make_preprocessor(plan: FeaturePlan, for_linear: bool = False) -> ColumnTran
                     handle_unknown="infrequent_if_exist",
                     max_categories=MAX_CATEGORIES,
                     sparse_output=False,
+                    feature_name_combiner=_one_hot_name,
                 ),
             ),
         ]
@@ -129,13 +138,13 @@ class DatetimeFeatures(TransformerMixin, BaseEstimator):
         for column in self.feature_names_in_:
             values = _as_datetime(X[column])
             for part in self._parts(column):
-                out[f"{column}_{part}"] = getattr(values.dt, part).astype(float)
+                out[f"{safe_name(column)}_{part}"] = getattr(values.dt, part).astype(float)
         return pd.DataFrame(out, index=X.index)
 
     def get_feature_names_out(self, input_features: object = None) -> np.ndarray:
         return np.asarray(
             [
-                f"{column}_{part}"
+                f"{safe_name(column)}_{part}"
                 for column in self.feature_names_in_
                 for part in self._parts(column)
             ],
@@ -153,7 +162,17 @@ def _as_datetime(series: pd.Series) -> pd.Series:
 
 
 def _to_float(X: pd.DataFrame) -> pd.DataFrame:
-    return pd.DataFrame(X).apply(pd.to_numeric, errors="coerce").astype(float)
+    out = pd.DataFrame(X).apply(pd.to_numeric, errors="coerce").astype(float)
+    out.columns = [safe_name(c) for c in out.columns]
+    return out
+
+
+def _safe_names_out(transformer: object, input_features: object) -> np.ndarray:
+    return np.asarray([safe_name(f) for f in input_features], dtype=object)
+
+
+def _one_hot_name(feature: str, category: object) -> str:
+    return f"{safe_name(feature)}_{safe_name(category)}"
 
 
 def _to_text(X: pd.DataFrame) -> pd.DataFrame:

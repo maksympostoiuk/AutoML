@@ -38,6 +38,8 @@ from sklearn.dummy import DummyClassifier, DummyRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.linear_model import LogisticRegression, Ridge
 
+from automl.preprocess import safe_name
+
 if TYPE_CHECKING:
     from automl.engine import FittedModel
 
@@ -212,12 +214,16 @@ def _group_features(
 
 
 def _source_column(feature: str, columns: list[str]) -> str:
-    """The original column a feature came from: exact name, or the longest "column_" prefix."""
+    """The original column a feature came from: exact name, or the longest "column_" prefix.
+
+    Feature names are built from ``safe_name(column)``, so the comparison uses it too.
+    """
     if feature.startswith(MISSING_INDICATOR_PREFIX):
         feature = feature[len(MISSING_INDICATOR_PREFIX) :]
-    if feature in columns:
-        return feature
-    matches = [c for c in columns if feature.startswith(f"{c}_")]
+    safe = {safe_name(c): c for c in columns}
+    if feature in safe:
+        return safe[feature]
+    matches = [name for name in safe if feature.startswith(f"{name}_")]
     if not matches:
         raise ValueError(f"Cannot tell which column feature {feature!r} came from")
-    return max(matches, key=len)
+    return safe[max(matches, key=len)]
